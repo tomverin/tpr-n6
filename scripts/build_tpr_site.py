@@ -54,8 +54,8 @@ def haversine_m(la1: float, lo1: float, la2: float, lo2: float) -> float:
 
 def parse_segmented_gpx() -> tuple[list[dict], list[dict], float, float]:
     ns = {"gpx": "http://www.topografix.com/GPX/1/1"}
-    segments_output = []
-    all_downsampled_pts = []
+    raw_segments = []
+    all_pts_flat = []
     cum_m = 0.0
     total_dplus = 0.0
     prev_pt = None
@@ -91,39 +91,74 @@ def parse_segmented_gpx() -> tuple[list[dict], list[dict], float, float]:
                 "km": round(cum_m / 1000.0, 1)
             }
             seg_pts.append(pt_dict)
-            all_downsampled_pts.append(pt_dict)
+            all_pts_flat.append(pt_dict)
 
-        # Downsample segment points for smooth Leaflet rendering
-        max_seg_pts = 400
-        if len(seg_pts) > max_seg_pts:
-            step = len(seg_pts) / max_seg_pts
-            ds_seg_pts = [seg_pts[int(i * step)] for i in range(max_seg_pts)]
-            if seg_pts and ds_seg_pts[-1] != seg_pts[-1]:
-                ds_seg_pts.append(seg_pts[-1])
-        else:
-            ds_seg_pts = seg_pts
-
-        segments_output.append({
+        raw_segments.append({
             "name": title,
             "filename": fname,
             "is_official": is_official,
-            "points": ds_seg_pts
+            "pts": seg_pts
         })
 
-    # Downsample all points for elevation profile
-    max_pts = 2000
-    if len(all_downsampled_pts) > max_pts:
-        step = len(all_downsampled_pts) / max_pts
-        full_pts = [all_downsampled_pts[int(i * step)] for i in range(max_pts)]
-    else:
-        full_pts = all_downsampled_pts
+    # Point-level overlap detection: tag each point if it's within 50m of another segment of different type or another liaison
+    processed_segments = []
+    for i, s1 in enumerate(raw_segments):
+        pts1 = s1["pts"]
+        overlaps = [False] * len(pts1)
 
-    return segments_output, full_pts, cum_m / 1000.0, total_dplus
+        for j, s2 in enumerate(raw_segments):
+            if i == j:
+                continue
+            # Check overlap between official and liaison or between different liaisons
+            if s1["is_official"] != s2["is_official"] or (not s1["is_official"] and not s2["is_official"]):
+                pts2 = s2["pts"]
+                for p1_idx, p1 in enumerate(pts1):
+                    if overlaps[p1_idx]:
+                        continue
+                    lat1, lon1 = p1["lat"], p1["lon"]
+                    # Sample every 3rd point of s2 for fast distance check
+                    for p2 in pts2[::3]:
+                        if haversine_m(lat1, lon1, p2["lat"], p2["lon"]) < 50.0:
+                            overlaps[p1_idx] = True
+                            break
+
+        # Attach overlap flag to points
+        downsampled_pts = []
+        max_seg_pts = 400
+        if len(pts1) > max_seg_pts:
+            step = len(pts1) / max_seg_pts
+            for idx_step in range(max_seg_pts):
+                idx = int(idx_step * step)
+                p = dict(pts1[idx])
+                p["overlap"] = overlaps[idx]
+                downsampled_pts.append(p)
+        else:
+            for idx, p in enumerate(pts1):
+                p_copy = dict(p)
+                p_copy["overlap"] = overlaps[idx]
+                downsampled_pts.append(p_copy)
+
+        processed_segments.append({
+            "name": s1["name"],
+            "filename": s1["filename"],
+            "is_official": s1["is_official"],
+            "points": downsampled_pts
+        })
+
+    # Downsample all flat points for profile
+    max_pts = 2000
+    if len(all_pts_flat) > max_pts:
+        step = len(all_pts_flat) / max_pts
+        full_pts = [all_pts_flat[int(i * step)] for i in range(max_pts)]
+    else:
+        full_pts = all_pts_flat
+
+    return processed_segments, full_pts, cum_m / 1000.0, total_dplus
 
 def build():
-    print("Parsing segmented GPX files for dual-color map...")
+    print("Parsing segmented GPX files with exact point-level overlap detection...")
     segments_data, full_pts, total_km, total_dplus = parse_segmented_gpx()
-    print(f"Loaded {len(segments_data)} segments. Total: {total_km:.1f} km, +{total_dplus:.0f} m D+.")
+    print(f"Processed {len(segments_data)} segments with overlap flags. Total: {total_km:.1f} km, +{total_dplus:.0f} m D+.")
 
     docs_json = {}
     for filename, title, desc in DOCS:
@@ -138,7 +173,6 @@ def build():
     OUT_HTML.parent.mkdir(parents=True, exist_ok=True)
 
     segments_json_str = json.dumps(segments_data)
-    full_pts_str = json.dumps(full_pts)
     docs_json_str = json.dumps(docs_json)
 
     html_content = f"""<!DOCTYPE html>
@@ -248,13 +282,13 @@ def build():
             <!-- Target Badges -->
             <div class="hidden md:flex items-center gap-3">
                 <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-red-500/10 text-red-400 border border-red-500/30">
-                    🔴 8 Parcours Orga
+                    🔴 8 Parcours Orga (Rouge)
                 </span>
                 <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-blue-500/10 text-blue-400 border border-blue-500/30">
-                    🔵 7 Liaisons Tracées
+                    🔵 7 Liaisons Tracées (Bleu)
                 </span>
                 <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-yellow-500/10 text-yellow-400 border border-yellow-500/30">
-                    🟡 0 Discontinuité
+                    🟡 Chevauchements (Pointillés)
                 </span>
             </div>
         </div>
@@ -265,7 +299,7 @@ def build():
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <nav class="flex space-x-2 sm:space-x-8 overflow-x-auto py-3" id="tab-nav">
                 <button onclick="switchTab('map')" id="tab-btn-map" class="tab-btn text-blue-400 border-b-2 border-blue-500 px-3 py-2 text-sm font-semibold flex items-center gap-2 whitespace-nowrap">
-                    📍 Carte Bicolore (Rouge / Bleu / Aller-Retour)
+                    📍 Carte Bicolore (Rouge / Bleu / Chevauchement)
                 </button>
                 <button onclick="switchTab('summary')" id="tab-btn-summary" class="tab-btn text-gray-400 hover:text-gray-200 border-b-2 border-transparent px-3 py-2 text-sm font-semibold flex items-center gap-2 whitespace-nowrap">
                     📋 Synthèse 7 Jours
@@ -292,22 +326,22 @@ def build():
                 <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-4">
                     <div>
                         <h2 class="text-2xl font-display font-bold text-white">Carte Bicolore du Parcours Global</h2>
-                        <p class="text-sm text-gray-400">Visualisation distincte des parcours officiels, des liaisons et des tronçons partagés / aller-retour.</p>
+                        <p class="text-sm text-gray-400">🔴 Parcours officiels orga en <b>Rouge</b> · 🔵 Liaisons en <b>Bleu</b> · 🟡 Chevauchements / Aller-Retours en <b>Pointillés Jaunes/Orange</b>.</p>
                     </div>
                     
                     <!-- Map Legend -->
                     <div class="flex flex-wrap items-center gap-4 text-xs font-semibold bg-gray-900/80 px-4 py-2 rounded-xl border border-gray-800">
                         <div class="flex items-center gap-2">
                             <span class="w-4 h-1.5 rounded-full bg-red-500 inline-block"></span>
-                            <span class="text-red-400">Parcours Officiel Orga (8)</span>
+                            <span class="text-red-400">Parcours Officiel Orga</span>
                         </div>
                         <div class="flex items-center gap-2">
                             <span class="w-4 h-1.5 rounded-full bg-blue-500 inline-block"></span>
-                            <span class="text-blue-400">Liaison Tracée (7)</span>
+                            <span class="text-blue-400">Liaison Tracée</span>
                         </div>
                         <div class="flex items-center gap-2">
-                            <span class="w-4 h-1.5 rounded-full bg-yellow-400 border border-dashed border-blue-400 inline-block"></span>
-                            <span class="text-yellow-400">Aller-Retour / Partagé</span>
+                            <span class="w-4 h-1.5 rounded-full bg-yellow-400 border border-dashed border-yellow-500 inline-block"></span>
+                            <span class="text-yellow-400">Zone de Chevauchement / Aller-Retour</span>
                         </div>
                     </div>
                 </div>
@@ -520,18 +554,16 @@ def build():
 
             const allLatLngs = [];
 
-            // Draw each segment with distinct color:
-            // RED (#ef4444) for Official, BLUE (#3b82f6) for Liaisons
-            SEGMENTS_DATA.forEach((seg, idx) => {{
-                const latlngs = seg.points.map(p => [p.lat, p.lon]);
-                allLatLngs.push(...latlngs);
-
+            SEGMENTS_DATA.forEach(seg => {{
                 const isOfficial = seg.is_official;
                 const baseColor = isOfficial ? '#ef4444' : '#3b82f6';
-                const baseWeight = isOfficial ? 6 : 4;
+                const baseWeight = isOfficial ? 6 : 5;
 
-                // Create main polyline for the segment
-                const polyline = L.polyline(latlngs, {{
+                // 1. Draw base polyline for the segment (RED for Official, BLUE for Liaisons)
+                const segLatLngs = seg.points.map(p => [p.lat, p.lon]);
+                allLatLngs.push(...segLatLngs);
+
+                const polyline = L.polyline(segLatLngs, {{
                     color: baseColor,
                     weight: baseWeight,
                     opacity: 0.85
@@ -539,15 +571,32 @@ def build():
 
                 polyline.bindPopup(`<b>${{seg.name}}</b><br><span style="color:${{baseColor}}; font-weight:bold">${{isOfficial ? '🔴 Parcours Officiel Orga' : '🔵 Liaison Tracée'}}</span><br><small>${{seg.filename}}</small>`);
 
-                // Highlight overlapping / out-and-back sections with a dashed yellow accent overlay
-                if (!isOfficial) {{
-                    const offsetLatLngs = seg.points.map(p => [p.lat + 0.00008, p.lon + 0.00008]);
-                    L.polyline(offsetLatLngs, {{
+                // 2. Draw ONLY the overlapping sub-segments with a yellow/orange dashed overlay line!
+                let overlapChunk = [];
+                seg.points.forEach((p, idx) => {{
+                    if (p.overlap) {{
+                        // Shift coordinates slightly (+0.00009 lat/lon ~9 meters) so both red and dashed yellow are visible
+                        overlapChunk.push([p.lat + 0.00009, p.lon + 0.00009]);
+                    }} else {{
+                        if (overlapChunk.length > 1) {{
+                            L.polyline(overlapChunk, {{
+                                color: '#f59e0b',
+                                weight: 4,
+                                dashArray: '8, 8',
+                                opacity: 0.95
+                            }}).addTo(map).bindPopup(`<b>${{seg.name}}</b><br><span style="color:#f59e0b; font-weight:bold">🟡 Zone de Chevauchement / Aller-Retour</span>`);
+                        }}
+                        overlapChunk = [];
+                    }}
+                }});
+
+                if (overlapChunk.length > 1) {{
+                    L.polyline(overlapChunk, {{
                         color: '#f59e0b',
-                        weight: 3,
+                        weight: 4,
                         dashArray: '8, 8',
-                        opacity: 0.9
-                    }}).addTo(map).bindPopup(`<b>${{seg.name}}</b><br><span style="color:#f59e0b; font-weight:bold">🟡 Liaison / Raccordnement</span>`);
+                        opacity: 0.95
+                    }}).addTo(map).bindPopup(`<b>${{seg.name}}</b><br><span style="color:#f59e0b; font-weight:bold">🟡 Zone de Chevauchement / Aller-Retour</span>`);
                 }}
             }});
 
@@ -622,7 +671,7 @@ def build():
     with open(OUT_HTML, "w", encoding="utf-8") as f:
         f.write(html_content)
 
-    print(f"✓ Built self-contained interactive public site with dual-color map at: {OUT_HTML}")
+    print(f"✓ Built self-contained interactive public site with exact point-level overlap detection at: {OUT_HTML}")
 
 if __name__ == "__main__":
     build()
