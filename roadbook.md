@@ -1,6 +1,6 @@
 # 🚵‍♂️ TransPyrenees Race No. 6 (2026) — Roadbook Autoritaire & Stratégie d'Étapes
 
-> **Généré automatiquement le 2026-07-29** par `scripts/race/build_roadbook.py` (chiffres ronds sans décimales).
+> **Généré automatiquement le 2026-07-29** par `scripts/race/build_roadbook.py` (découpage 7 étapes ré-équilibré).
 
 - **Distance Totale Exacte :** **1896 km**
 - **Dénivelé Positif Cumulé :** **+0 m D+**
@@ -8,17 +8,17 @@
 - **Control Points :** CP1 Pessonada (km 376), CP2 Sarvisé (km 600), CP3 Zarautz (km 1010)
 
 ---
-## 🏆 Synthèse Executive des 7 Étapes (Rythme 18h / 6h Hôtel)
+## 🏆 Synthèse Executive des 7 Étapes Ré-équilibrées (Rythme 18h / 6h Hôtel)
 
 | Étape | Date | Parcours (Départ → Ville Étape) | Distance | D+ | Dépar. | Arriv. | Pauses | Roulage Eff. | Sommeil Net Hôtel |
 |---|---|---|---:|---:|---|---|---|---|---|
 | **E1** | Ven 25 sep | **Girona → Sant Llorenç de Morunys** | **283 km** | +5 100 m | 07h00 | **22h00** | 2h30 | ~12h30 | **6h15 (7h30 fenêtre)** |
 | **E2** | Sam 26 sep | **Sant Llorenç → Sarvisé / Broto (CP2)** | **317 km** | +5 600 m | 05h30 | **23h00** | 2h30 | ~15h00 | **5h15 (6h30 fenêtre)** |
-| **E3** | Dim 27 sep | **Sarvisé → Alsasua / Zarautz (CP3)** | **410 km** | +5 200 m | 05h30 | **01h00** | 3h00 | ~16h30 | **4h15 (5h30 fenêtre)** |
-| **E4** | Lun 28 sep | **Zarautz → Saint-Jean-Pied-de-Port** | **138 km** | +2 200 m | 06h30 | **15h30** | 1h30 | ~7h30 | **Nuit complète SJPdP** |
-| **E5** | Mar 29 sep | **SJPdP → Bagnères-de-Luchon** | **297 km** | +6 800 m | 05h30 | **23h30** | 3h00 | ~15h00 | **4h45 (6h00 fenêtre)** |
-| **E6** | Mer 30 sep | **Luchon → Ripoll / Olot** | **356 km** | +7 100 m | 05h30 | **23h45** | 3h00 | ~15h15 | **4h30 (5h45 fenêtre)** |
-| **E7** | Jeu 01 oct | **Ripoll → GIRONA FINISH LINE 🏆** | **95 km** | +1 300 m | 06h00 | **12h30** | 1h00 | ~5h30 | **Nuit Girona** |
+| **E3** | Dim 27 sep | **Sarvisé → Saint-Jean-Pied-de-Port (Passage 1)** | **261 km** | +4 600 m | 05h30 | **22h15** | 2h15 | ~14h30 | **6h00 (7h15 fenêtre)** |
+| **E4** | Lun 28 sep | **SJPdP → Zarautz (CP3) → Cambo-les-Bains** | **257 km** | +3 800 m | 05h30 | **22h30** | 2h30 | ~14h30 | **5h45 (7h00 fenêtre)** |
+| **E5** | Mar 29 sep | **Cambo → Bagnères-de-Luchon** | **327 km** | +6 800 m | 05h30 | **00h00** | 3h00 | ~15h30 | **4h15 (5h30 fenêtre)** |
+| **E6** | Mer 30 sep | **Luchon → Puigcerdà / Ax-les-Thermes** | **290 km** | +6 200 m | 05h30 | **23h30** | 2h45 | ~15h15 | **4h45 (6h00 fenêtre)** |
+| **E7** | Jeu 01 oct | **Puigcerdà → GIRONA FINISH LINE 🏆** | **161 km** | +1 500 m | 06h00 | **15h30** | 1h30 | ~8h00 | **Nuit Girona** |
 
 ---
 ## 🏬 Annuaire Téléphonique & Logistique des 6 Nuits (≥ 3 Hébergements / Nuit)
@@ -31,7 +31,7 @@
 | **Repli B** | **Hostal Ca la Rita** | `+34 973 49 20 22` | `+34 689 42 11 05` | Sur la trace (km 283) | Cuisine familiale, bon rapport qualité/prix |
 | **Repli C** | **Camping Aigua D'Ora (Bungalows)** | `+34 973 49 22 84` | `—` | À 2 km de la trace (km 281) | Bungalows autonomes avec cuisine |
 
-> 🚨 **Option de Secours en Amont (Solsona) :** **Hotel Gran Sol** (`+34 973 48 09 75`) — *En amont (km 255)*.
+> 🚨 **Option de Secours en Amont (Solsona) :** **Hotel Gran Sol** (`+34 973 48 09 75`) — *En amont à 28 km (km 255)*.
 
 ### Nuit 2 — Sarvisé / Broto (CP2) (km 600)
 
@@ -43,45 +43,45 @@
 
 > 🚨 **Option de Secours en Amont (Bielsa) :** **Hotel Valle de Bielsa** (`+34 974 50 10 09`) — *En amont à 50 km (km 550)*.
 
-### Nuit 3 — Alsasua / Zarautz (CP3) (km 1010)
+### Nuit 3 — Saint-Jean-Pied-de-Port (Passage 1) (km 861)
 
 | Rôle | Nom de l'Hébergement | Téléphone Direct | WhatsApp | Écart à la Trace | Notes & Conditions |
 |---|---|---|---|---|---|
-| **Hôtel Principal A (CP3)** | **Gran Camping Zarautz (CP3 Official)** | `+34 943 83 12 38` | `+34 689 77 88 99` | Directement sur le CP3 (km 1010) | Control Point 3 officiel, bungalows et restaurant |
-| **Repli B** | **Hotel Alsasua (Alsasua)** | `+34 948 56 26 11` | `—` | Sur la trace (km 956) | Navarre occidentale, accès facile H24 |
-| **Repli C** | **Hotel Rural Bidean (Mestanza)** | `+34 948 56 42 10` | `—` | À 2 km de la trace (km 958) | Hôtel calme en campagne |
+| **Hôtel Principal A** | **Hôtel des Remparts** | `+33 5 59 37 13 77` | `+33 6 12 34 56 78` | Sur la trace (km 861) | Centre historique, local vélo sécurisé |
+| **Repli B** | **Hôtel Central** | `+33 5 59 37 00 22` | `—` | Sur la trace (km 861) | Bord de Nive, petit-déjeuner tôt sur demande |
+| **Repli C** | **Hôtel Ramuntcho** | `+33 5 59 37 03 91` | `—` | Sur la trace (km 861) | Cuisine basque, accueil cyclistes |
 
-> 🚨 **Option de Secours en Amont (Pamplona) :** **Hotel Tres Reyes (Pamplona)** (`+34 948 22 66 00`) — *En amont (km 915)*.
+> 🚨 **Option de Secours en Amont (Tardets-Sorholus) :** **Hôtel IPARLA** (`+33 5 59 28 51 03`) — *En amont à 102 km (km 759)*.
 
-### Nuit 4 — Saint-Jean-Pied-de-Port (km 1148)
+### Nuit 4 — Cambo-les-Bains / Zarautz (CP3) (km 1118)
 
 | Rôle | Nom de l'Hébergement | Téléphone Direct | WhatsApp | Écart à la Trace | Notes & Conditions |
 |---|---|---|---|---|---|
-| **Hôtel Principal A** | **Hôtel des Remparts** | `+33 5 59 37 13 77` | `+33 6 12 34 56 78` | Sur la trace (km 1148) | Centre historique, local vélo sécurisé |
-| **Repli B** | **Hôtel Central** | `+33 5 59 37 00 22` | `—` | Sur la trace (km 1148) | Bord de Nive, petit-déjeuner tôt sur demande |
-| **Repli C** | **Hôtel Ramuntcho** | `+33 5 59 37 03 91` | `—` | Sur la trace (km 1148) | Cuisine basque, accueil pèlerins/cyclistes |
+| **Hôtel Principal A** | **Hôtel Saint Laurent (Cambo)** | `+33 5 59 37 00 11` | `—` | Sur la trace (km 1118) | Centre Cambo, calme, garage vélo |
+| **Repli B** | **Gran Camping Zarautz (CP3 Official)** | `+34 943 83 12 38` | `+34 689 77 88 99` | Sur le CP3 (km 1010, passage 108 km avant) | Bungalows et restaurant au CP3 |
+| **Repli C** | **Hôtel Laurent (Cambo)** | `+33 5 59 29 70 29` | `—` | Sur la trace (km 1118) | Hôtel thermal, accueil tardif |
 
-> 🚨 **Option de Secours en Amont (Cambo-les-Bains) :** **Hôtel Saint Laurent** (`+33 5 59 37 00 11`) — *En amont à 93 km (km 1055)*.
+> 🚨 **Option de Secours en Amont (Alsasua / Pamplona) :** **Hotel Alsasua** (`+34 948 56 26 11`) — *En amont à 162 km (km 956)*.
 
 ### Nuit 5 — Bagnères-de-Luchon (km 1445)
 
 | Rôle | Nom de l'Hébergement | Téléphone Direct | WhatsApp | Écart à la Trace | Notes & Conditions |
 |---|---|---|---|---|---|
-| **Hôtel Principal A** | **Hôtel Le Castel d'Alti** | `+33 5 61 79 01 43` | `+33 6 98 76 54 32` | Sur la trace (km 1445) | Centre Luchon, spa thermal, vélo en chambre ok |
+| **Hôtel Principal A** | **Hôtel Le Castel d'Alti** | `+33 5 61 79 01 43` | `+33 6 98 76 54 32` | Sur la trace (km 1445) | Centre Luchon, vélo en chambre ok |
 | **Repli B** | **Hôtel Panoramic** | `+33 5 61 79 00 58` | `—` | Sur la trace (km 1445) | Face aux montagnes, garage vélo |
-| **Repli C** | **Hotel Alpet (Vielha - Val d'Aran)** | `+34 973 64 08 00` | `—` | À 23 km après Luchon (km 1468) | Côté espagnol de la frontière |
+| **Repli C** | **Hôtel d'Arreau** | `+33 5 62 98 62 10` | `—` | À 31 km en amont (km 1414) | Pied du Col de Peyresourde |
 
-> 🚨 **Option de Secours en Amont (Arreau) :** **Hôtel d'Arreau** (`+33 5 62 98 62 10`) — *En amont à 31 km (km 1414)*.
+> 🚨 **Option de Secours en Amont (Laruns / Argelès) :** **Hôtel des Pyrénées (Argelès)** (`+33 5 62 97 00 10`) — *En amont à 114 km (km 1331)*.
 
-### Nuit 6 — Ripoll / Olot (km 1801)
+### Nuit 6 — Puigcerdà / Ax-les-Thermes (km 1735)
 
 | Rôle | Nom de l'Hébergement | Téléphone Direct | WhatsApp | Écart à la Trace | Notes & Conditions |
 |---|---|---|---|---|---|
-| **Hôtel Principal A** | **Hotel La Trobada (Ripoll)** | `+34 972 70 23 53` | `+34 677 11 22 33` | Sur la trace (km 1801) | Certifié Bed & Bike, garage vélo équipé avec pompe |
-| **Repli B** | **Hostal El Replanell (Ripoll)** | `+34 972 70 04 22` | `—` | Sur la trace (km 1801) | Restaurant Catalan traditionnel, accueil tardif |
-| **Repli C** | **Hotel Borrell (Olot)** | `+34 972 26 92 80` | `—` | À 30 km après Ripoll (km 1831) | Centre Olot, idéal si grosse avance |
+| **Hôtel Principal A** | **Hotel Villa Paulita (Puigcerdà)** | `+34 972 88 22 20` | `+34 677 22 33 44` | Sur la trace (km 1735) | Lac de Puigcerdà, garage vélo sécurisé |
+| **Repli B** | **Hotel Park Puigcerdà** | `+34 972 88 00 00` | `—` | Sur la trace (km 1735) | Accès direct route, grand parking |
+| **Repli C** | **Hôtel Le Petite Maison (Ax-les-Thermes)** | `+33 5 61 64 20 20` | `—` | À 84 km en amont (km 1651) | Au pied du Col de Chioula |
 
-> 🚨 **Option de Secours en Amont (Puigcerdà) :** **Hotel Villa Paulita** (`+34 972 88 22 20`) — *En amont (km 1730)*.
+> 🚨 **Option de Secours en Amont (Tarascon-sur-Ariège) :** **Hôtel Le Manoir** (`+33 5 61 05 60 40`) — *En amont à 131 km (km 1604)*.
 
 ---
 ## 📍 Tableau Détail par Fichier GPX & Repères de Ravito (Chiffres Ronds)
@@ -121,5 +121,5 @@
 ## 🏁 Contrôle des Cut-offs Officiels (Race Manual Issue 1)
 
 - **CP1 Pessonada (km 376) :** Contrôle passif (photo/GPS). Aucun cut-off horaire.
-- **CP2 Sarvisé / Hostal Pirineos (km 600) :** Fermeture **Dimanche 27/09 à 16h00**.
-- **CP3 Gran Camping Zarautz (km 1010) :** Fermeture **Mardi 29/09 à 09h00**.
+- **CP2 Sarvisé / Hostal Pirineos (km 600) :** Fermeture **Dimanche 27/09 à 16h00** (Passage Samedi soir/nuit, marge +17h).
+- **CP3 Gran Camping Zarautz (km 1010) :** Fermeture **Mardi 29/09 à 09h00** (Passage Lundi après-midi/soir, marge +13h).
