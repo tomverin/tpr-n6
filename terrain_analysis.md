@@ -1,5 +1,19 @@
 # GPX Terrain Analysis
 
+> ⛔ **OBSOLÈTE — remplacé par `terrain_analysis_v2.md` (2026-07-29).**
+> Ce fichier analyse `TPRn6 Full v1.gpx`, un brouillon. Le parcours de course est
+> `TPRn6 Full v2.gpx`, assemblé depuis `Stages/` par `scripts/race/build_full_gpx.py`.
+> Lire `terrain_analysis_v2.md` et `surface_and_tyres_v2.md`. Conservé pour l'historique.
+> Le parcours réel est la concaténation des 15 fichiers de `Stages/` (8 parcours officiels
+> imposés + 7 liaisons tracées à la main). **État chiffré à jour : `chain_status.md`**
+> (1 861 km / +34 506 m au 29/07, les 3 CP sur le tracé, 4,3 km de trous restants).
+> Les liaisons bougent encore, ne pas figer de chiffre ici.
+> **Conséquence : tous les kilomètres de ce document sont décalés**, y compris ceux des secteurs
+> non bitumés et des cols majeurs. À régénérer sur `Stages/` une fois les liaisons figées.
+> Règle de tri à appliquer alors : un secteur non bitumé situé dans une **liaison** est
+> facultatif, un secteur situé dans un **parcours officiel** ne l'est pas.
+> Voir `roadbook-review-2026-07-29.md`.
+
 - GPX files: /Users/tomverin/Documents/training-journal/races/2026-tpr-n6/TPRn6 Full v1.gpx
 - Distance: 1902.5 km.
 - Smoothed gain/loss: +32839 m / -32843 m.

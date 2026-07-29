@@ -1,3 +1,10 @@
+> ⚠️ **Version périmée — ne pas emporter en course (état au 2026-07-29).**
+> Km, villes-étapes et horaires ne correspondent pas aux GPX de `Stages/` : la plupart des
+> lieux intermédiaires cités sont hors parcours, le total réel approche ~1 917 km, et CP1
+> comme CP3 ne sont pas sur la trace actuelle. Ce fichier sera **régénéré** depuis les GPX
+> une fois les liaisons figées ; ne pas le corriger à la main d'ici là.
+> Défauts détaillés et plan d'action : `roadbook-review-2026-07-29.md`.
+
 ## 📋 Tableau Synthétique des 7 Étapes (Ultra Pacing)
 
 | Étape | Jour & Date | Ville Départ → Ville Étape | Distance | Dénivelé (D+) | Dépar. | Arriv. | Temps Pause | Roulage Eff. | Sommeil Hôtel |

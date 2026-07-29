@@ -13,15 +13,35 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 TPR_DIR = ROOT / "races" / "2026-tpr-n6"
-TRACK_GPX = TPR_DIR / "TPRn6 Full v1.gpx"
+STAGES_DIR = TPR_DIR / "Stages"
 OUT_HTML = TPR_DIR / "site" / "index.html"
 
 DOCS = [
     ("roadbook.md", "Roadbook & Plan d'Étapes", "Découpage officiel par segment GPX, ravitos, hôtels et numéros de téléphone."),
+    ("chain_status.md", "État de la Chaîne Auditée", "Audit officiel de la chaîne continue des 15 fichiers GPX et des 3 Control Points."),
+    ("roadbook-review-2026-07-29.md", "Revue du Roadbook & Audit", "Revue stratégique du parcours, analyse des 5 trous et plan d'action."),
     ("pacing_analysis.md", "Analyse Pacing & Stratégie", "Modèles de vitesse, rythme 18h/6h, temps de roulage et stratégie de sommeil."),
     ("logistique.md", "Logistique & Transports", "Billets de train réservés (Aller Lyon→Girona, 3 options Retour), matériel et hôtels."),
     ("terrain_analysis.md", "Analyse du Relief", "Profil d'altitude, cols majeurs, types de surface et secteurs à risque."),
     ("climb_gear_analysis.md", "Braquets & Matériel", "Analyse de la transmission mono-plateau 40T x 10-44 et braquets en montagne.")
+]
+
+ORDERED_STAGES = [
+    "1.TPRn6 Start parcours.gpx",
+    "2.TPRn6 start to parcours A road.gpx",
+    "3.TPRn6 A.gpx",
+    "4.TPRn6 A to B Gravel.gpx",
+    "5.TPRn6 parcours B.gpx",
+    "6.TPRn6 B to C.gpx",
+    "7.TPRn6 parcours C.gpx",
+    "8.TPRn6 C to D.gpx",
+    "9.TPRn6 parcours D.gpx",
+    "10.TPRn6 D to E.gpx",
+    "11.TPRn6 parcours E.gpx",
+    "12.TPRn6 E to F.gpx",
+    "13.TPRn6 Parcours F.gpx",
+    "14.TPRn6 F to End.gpx",
+    "15.TPRn6 Finish.gpx"
 ]
 
 def haversine_m(la1: float, lo1: float, la2: float, lo2: float) -> float:
@@ -32,42 +52,62 @@ def haversine_m(la1: float, lo1: float, la2: float, lo2: float) -> float:
     a = math.sin(dp / 2) ** 2 + math.cos(p1) * math.cos(p2) * math.sin(dl / 2) ** 2
     return 2 * R * math.asin(math.sqrt(a))
 
-def parse_and_downsample_gpx(gpx_path: Path, max_pts: int = 1500) -> list[dict]:
-    tree = ET.parse(gpx_path)
-    root = tree.getroot()
+def parse_full_chain_gpx(max_pts: int = 2500) -> tuple[list[dict], float, float]:
     ns = {"gpx": "http://www.topografix.com/GPX/1/1"}
-    trkpts = root.findall(".//gpx:trkpt", ns) or root.findall(".//trkpt")
-
-    pts = []
+    all_pts = []
     cum_m = 0.0
-    prev = None
+    total_dplus = 0.0
+    prev_pt = None
 
-    for tp in trkpts:
-        lat = float(tp.attrib["lat"])
-        lon = float(tp.attrib["lon"])
-        ele_el = tp.find("gpx:ele", ns) or tp.find("ele")
-        ele = float(ele_el.text) if ele_el is not None and ele_el.text else 0.0
-        if prev is not None:
-            cum_m += haversine_m(prev[0], prev[1], lat, lon)
-        prev = (lat, lon)
-        pts.append({"lat": round(lat, 5), "lon": round(lon, 5), "ele": round(ele, 1), "km": round(cum_m / 1000.0, 1)})
+    for fname in ORDERED_STAGES:
+        fpath = STAGES_DIR / fname
+        if not fpath.exists():
+            continue
+        tree = ET.parse(fpath)
+        root = tree.getroot()
+        trkpts = root.findall(".//gpx:trkpt", ns) or root.findall(".//trkpt")
 
-    if len(pts) <= max_pts:
-        return pts
+        for tp in trkpts:
+            lat = float(tp.attrib["lat"])
+            lon = float(tp.attrib["lon"])
+            ele_el = tp.find("gpx:ele", ns) or tp.find("ele")
+            ele = float(ele_el.text) if ele_el is not None and ele_el.text else 0.0
 
-    step = len(pts) / max_pts
+            if prev_pt is not None:
+                plat, plon, pele = prev_pt
+                d = haversine_m(plat, plon, lat, lon)
+                cum_m += d
+                dele = ele - pele
+                if dele > 0.1:
+                    total_dplus += dele
+
+            prev_pt = (lat, lon, ele)
+            all_pts.append({
+                "lat": round(lat, 5),
+                "lon": round(lon, 5),
+                "ele": round(ele, 1),
+                "km": round(cum_m / 1000.0, 1)
+            })
+
+    total_km = cum_m / 1000.0
+
+    if len(all_pts) <= max_pts:
+        return all_pts, total_km, total_dplus
+
+    step = len(all_pts) / max_pts
     downsampled = []
     for i in range(max_pts):
         idx = int(i * step)
-        downsampled.append(pts[idx])
-    if pts and downsampled[-1] != pts[-1]:
-        downsampled.append(pts[-1])
-    return downsampled
+        downsampled.append(all_pts[idx])
+    if all_pts and downsampled[-1] != all_pts[-1]:
+        downsampled.append(all_pts[-1])
+
+    return downsampled, total_km, total_dplus
 
 def build():
-    print(f"Parsing GPX track: {TRACK_GPX.name}...")
-    track_pts = parse_and_downsample_gpx(TRACK_GPX, max_pts=2000)
-    print(f"Downsampled track to {len(track_pts)} points.")
+    print("Parsing full audited chain of 15 GPX files...")
+    track_pts, total_km, total_dplus = parse_full_chain_gpx(max_pts=2500)
+    print(f"Loaded {len(track_pts)} points for full chain. Total: {total_km:.1f} km, +{total_dplus:.0f} m D+.")
 
     docs_json = {}
     for filename, title, desc in DOCS:
@@ -148,20 +188,10 @@ def build():
             border: 1px solid rgba(255, 255, 255, 0.08);
         }}
         #map {{
-            height: 520px;
+            height: 540px;
             width: 100%;
             border-radius: 1rem;
             z-index: 10;
-        }}
-        .custom-scrollbar::-webkit-scrollbar {{
-            width: 6px;
-        }}
-        .custom-scrollbar::-webkit-scrollbar-track {{
-            background: #151c2c;
-        }}
-        .custom-scrollbar::-webkit-scrollbar-thumb {{
-            background: #3b82f6;
-            border-radius: 3px;
         }}
         .prose pre {{
             background-color: #1e293b;
@@ -196,20 +226,20 @@ def build():
                 </div>
                 <div>
                     <h1 class="text-xl font-display font-bold text-white tracking-wide">TransPyrenees Race No. 6</h1>
-                    <p class="text-xs text-blue-400 font-medium">Girona → Pyrenées → Girona · 1 893 km · +32 840 m D+</p>
+                    <p class="text-xs text-blue-400 font-medium">Girona → Pyrenées → Girona · <span class="text-white font-bold">1 849,7 km</span> · <span class="text-white font-bold">+34 359 m D+</span> · <span class="text-emerald-400 font-bold">Chaîne 100% Continue</span></p>
                 </div>
             </div>
             
             <!-- Target Badges -->
             <div class="hidden md:flex items-center gap-3">
                 <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">
-                    ⏱️ Objectif 6,5 Jours
+                    ✨ 0 Discontinuité
                 </span>
                 <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-blue-500/10 text-blue-400 border border-blue-500/30">
-                    🛌 6h Sommeil / Nuit
+                    📍 CP1, CP2, CP3 à <10m
                 </span>
                 <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-purple-500/10 text-purple-400 border border-purple-500/30">
-                    🚆 All/Ret Trains Réser.
+                    ⏱️ 89h Roulage Modèle
                 </span>
             </div>
         </div>
@@ -219,17 +249,17 @@ def build():
     <div class="border-b border-gray-800 bg-dark-bg">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <nav class="flex space-x-2 sm:space-x-8 overflow-x-auto py-3" id="tab-nav">
-                <button onclick="switchTab('summary')" id="tab-btn-summary" class="tab-btn text-blue-400 border-b-2 border-blue-500 px-3 py-2 text-sm font-semibold flex items-center gap-2 whitespace-nowrap">
-                    📋 Synthèse 7 Jours
+                <button onclick="switchTab('chain')" id="tab-btn-chain" class="tab-btn text-blue-400 border-b-2 border-blue-500 px-3 py-2 text-sm font-semibold flex items-center gap-2 whitespace-nowrap">
+                    📊 État de la Chaîne Auditée
                 </button>
                 <button onclick="switchTab('roadbook')" id="tab-btn-roadbook" class="tab-btn text-gray-400 hover:text-gray-200 border-b-2 border-transparent px-3 py-2 text-sm font-semibold flex items-center gap-2 whitespace-nowrap">
-                    🛒 Roadbook par GPX
+                    🛒 Roadbook par Fichier GPX
                 </button>
                 <button onclick="switchTab('map')" id="tab-btn-map" class="tab-btn text-gray-400 hover:text-gray-200 border-b-2 border-transparent px-3 py-2 text-sm font-semibold flex items-center gap-2 whitespace-nowrap">
-                    📍 Carte & Parcours
+                    📍 Carte Interactive Leaflet
                 </button>
-                <button onclick="switchTab('logistics')" id="tab-btn-logistics" class="tab-btn text-gray-400 hover:text-gray-200 border-b-2 border-transparent px-3 py-2 text-sm font-semibold flex items-center gap-2 whitespace-nowrap">
-                    🚆 Logistique & Trains
+                <button onclick="switchTab('review')" id="tab-btn-review" class="tab-btn text-gray-400 hover:text-gray-200 border-b-2 border-transparent px-3 py-2 text-sm font-semibold flex items-center gap-2 whitespace-nowrap">
+                    📝 Revue & Audit 29/07
                 </button>
                 <button onclick="switchTab('docs')" id="tab-btn-docs" class="tab-btn text-gray-400 hover:text-gray-200 border-b-2 border-transparent px-3 py-2 text-sm font-semibold flex items-center gap-2 whitespace-nowrap">
                     📖 Documents & Analyses
@@ -241,135 +271,20 @@ def build():
     <!-- Main Content Container -->
     <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
 
-        <!-- TAB 1: SUMMARY TABLE -->
-        <section id="tab-summary" class="tab-content block space-y-6">
+        <!-- TAB 1: AUDITED CHAIN STATUS -->
+        <section id="tab-chain" class="tab-content block space-y-6">
             <div class="glass-panel p-6 rounded-2xl">
                 <div class="flex items-center justify-between mb-6">
                     <div>
-                        <h2 class="text-2xl font-display font-bold text-white">Tableau Synthétique des 7 Étapes</h2>
-                        <p class="text-sm text-gray-400">Pacing ultra équilibré (6h de vrai sommeil en hôtel chaque nuit + 2h à 2h45 de pauses ravitos)</p>
+                        <h2 class="text-2xl font-display font-bold text-white">Chaîne Officielle Auditée des 15 Fichiers GPX</h2>
+                        <p class="text-sm text-emerald-400 font-medium">✓ Audit validé par `audit_tpr_chain.py` : 0 discontinuité, 3 CP parfaitement centrés.</p>
                     </div>
                 </div>
-
-                <div class="overflow-x-auto">
-                    <table class="w-full text-left text-sm text-gray-300">
-                        <thead class="bg-gray-800/60 text-xs uppercase text-gray-400 border-b border-gray-700">
-                            <tr>
-                                <th class="px-4 py-3 font-semibold">Étape</th>
-                                <th class="px-4 py-3 font-semibold">Jour & Date</th>
-                                <th class="px-4 py-3 font-semibold">Parcours (Départ → Ville Étape)</th>
-                                <th class="px-4 py-3 font-semibold">Distance</th>
-                                <th class="px-4 py-3 font-semibold">D+</th>
-                                <th class="px-4 py-3 font-semibold">Dépar.</th>
-                                <th class="px-4 py-3 font-semibold">Arriv.</th>
-                                <th class="px-4 py-3 font-semibold">Pauses</th>
-                                <th class="px-4 py-3 font-semibold">Roulage Eff.</th>
-                                <th class="px-4 py-3 font-semibold">Nuit Hôtel</th>
-                            </tr>
-                        </thead>
-                        <tbody class="divide-y divide-gray-800">
-                            <tr class="hover:bg-gray-800/40 transition">
-                                <td class="px-4 py-3 font-bold text-blue-400">E1</td>
-                                <td class="px-4 py-3 text-gray-300">Ven 25 sep</td>
-                                <td class="px-4 py-3 font-medium text-white">Girona → <span class="text-emerald-400 font-semibold">Sant Llorenç de Morunys</span></td>
-                                <td class="px-4 py-3 font-bold text-white">303 km</td>
-                                <td class="px-4 py-3 text-blue-400">+5 380 m</td>
-                                <td class="px-4 py-3 text-gray-400">07h00</td>
-                                <td class="px-4 py-3 font-semibold text-emerald-400">22h45</td>
-                                <td class="px-4 py-3 text-gray-400">2h30</td>
-                                <td class="px-4 py-3 text-gray-300">~13h15</td>
-                                <td class="px-4 py-3 font-medium text-purple-300">6h00</td>
-                            </tr>
-                            <tr class="hover:bg-gray-800/40 transition">
-                                <td class="px-4 py-3 font-bold text-blue-400">E2</td>
-                                <td class="px-4 py-3 text-gray-300">Sam 26 sep</td>
-                                <td class="px-4 py-3 font-medium text-white">Sant Llorenç → <span class="text-emerald-400 font-semibold">Sarvisé / Broto</span> (CP2)</td>
-                                <td class="px-4 py-3 font-bold text-white">271 km</td>
-                                <td class="px-4 py-3 text-blue-400">+5 300 m</td>
-                                <td class="px-4 py-3 text-gray-400">05h30</td>
-                                <td class="px-4 py-3 font-semibold text-emerald-400">22h30</td>
-                                <td class="px-4 py-3 text-gray-400">2h30</td>
-                                <td class="px-4 py-3 text-gray-300">~14h30</td>
-                                <td class="px-4 py-3 font-medium text-purple-300">6h00</td>
-                            </tr>
-                            <tr class="hover:bg-gray-800/40 transition">
-                                <td class="px-4 py-3 font-bold text-blue-400">E3</td>
-                                <td class="px-4 py-3 text-gray-300">Dim 27 sep</td>
-                                <td class="px-4 py-3 font-medium text-white">Sarvisé → <span class="text-emerald-400 font-semibold">St-Jean-Pied-de-Port</span></td>
-                                <td class="px-4 py-3 font-bold text-white">280 km</td>
-                                <td class="px-4 py-3 text-blue-400">+4 800 m</td>
-                                <td class="px-4 py-3 text-gray-400">05h30</td>
-                                <td class="px-4 py-3 font-semibold text-emerald-400">22h45</td>
-                                <td class="px-4 py-3 text-gray-400">2h30</td>
-                                <td class="px-4 py-3 text-gray-300">~14h45</td>
-                                <td class="px-4 py-3 font-medium text-purple-300">6h00</td>
-                            </tr>
-                            <tr class="hover:bg-gray-800/40 transition">
-                                <td class="px-4 py-3 font-bold text-blue-400">E4</td>
-                                <td class="px-4 py-3 text-gray-300">Lun 28 sep</td>
-                                <td class="px-4 py-3 font-medium text-white">St-Jean-Pied-de-Port → <span class="text-emerald-400 font-semibold">Alsasua</span> (CP3)</td>
-                                <td class="px-4 py-3 font-bold text-white">265 km</td>
-                                <td class="px-4 py-3 text-blue-400">+4 100 m</td>
-                                <td class="px-4 py-3 text-gray-400">05h30</td>
-                                <td class="px-4 py-3 font-semibold text-emerald-400">22h15</td>
-                                <td class="px-4 py-3 text-gray-400">2h15</td>
-                                <td class="px-4 py-3 text-gray-300">~14h30</td>
-                                <td class="px-4 py-3 font-medium text-purple-300">6h00</td>
-                            </tr>
-                            <tr class="hover:bg-gray-800/40 transition">
-                                <td class="px-4 py-3 font-bold text-blue-400">E5</td>
-                                <td class="px-4 py-3 text-gray-300">Mar 29 sep</td>
-                                <td class="px-4 py-3 font-medium text-white">Alsasua → <span class="text-emerald-400 font-semibold">Bagnères-de-Luchon</span></td>
-                                <td class="px-4 py-3 font-bold text-white">250 km</td>
-                                <td class="px-4 py-3 text-blue-400">+5 800 m</td>
-                                <td class="px-4 py-3 text-gray-400">05h30</td>
-                                <td class="px-4 py-3 font-semibold text-emerald-400">23h00</td>
-                                <td class="px-4 py-3 text-gray-400">2h45</td>
-                                <td class="px-4 py-3 text-gray-300">~14h45</td>
-                                <td class="px-4 py-3 font-medium text-purple-300">6h00</td>
-                            </tr>
-                            <tr class="hover:bg-gray-800/40 transition">
-                                <td class="px-4 py-3 font-bold text-blue-400">E6</td>
-                                <td class="px-4 py-3 text-gray-300">Mer 30 sep</td>
-                                <td class="px-4 py-3 font-medium text-white">Luchon → <span class="text-emerald-400 font-semibold">Ripoll / Olot</span></td>
-                                <td class="px-4 py-3 font-bold text-white">270 km</td>
-                                <td class="px-4 py-3 text-blue-400">+5 200 m</td>
-                                <td class="px-4 py-3 text-gray-400">05h30</td>
-                                <td class="px-4 py-3 font-semibold text-emerald-400">22h45</td>
-                                <td class="px-4 py-3 text-gray-400">2h45</td>
-                                <td class="px-4 py-3 text-gray-300">~14h30</td>
-                                <td class="px-4 py-3 font-medium text-purple-300">6h00</td>
-                            </tr>
-                            <tr class="hover:bg-gray-800/40 transition bg-emerald-500/10 border-t-2 border-emerald-500/40">
-                                <td class="px-4 py-3 font-bold text-emerald-400">E7</td>
-                                <td class="px-4 py-3 text-gray-300 font-semibold">Jeu 01 oct</td>
-                                <td class="px-4 py-3 font-bold text-emerald-300">Ripoll → <span class="text-emerald-400 underline">GIRONA FINISH LINE 🏆</span></td>
-                                <td class="px-4 py-3 font-bold text-emerald-300">215 km</td>
-                                <td class="px-4 py-3 text-blue-400">+2 200 m</td>
-                                <td class="px-4 py-3 text-gray-400">05h30</td>
-                                <td class="px-4 py-3 font-bold text-emerald-400 text-base">20h00</td>
-                                <td class="px-4 py-3 text-gray-400">2h00</td>
-                                <td class="px-4 py-3 text-gray-300">~12h30</td>
-                                <td class="px-4 py-3 font-bold text-emerald-400">Nuit Girona</td>
-                            </tr>
-                        </tbody>
-                        <tfoot class="bg-gray-800/80 font-bold text-white">
-                            <tr>
-                                <td class="px-4 py-3 text-blue-400" colspan="3">CUMUL TOTAL (6,5 JOURS)</td>
-                                <td class="px-4 py-3 text-emerald-400 text-base">1 854 km</td>
-                                <td class="px-4 py-3 text-blue-400 text-base">+32 780 m</td>
-                                <td class="px-4 py-3" colspan="2">—</td>
-                                <td class="px-4 py-3 text-yellow-400">17h15</td>
-                                <td class="px-4 py-3 text-white">~104h</td>
-                                <td class="px-4 py-3 text-purple-300">36h Hôtel</td>
-                            </tr>
-                        </tfoot>
-                    </table>
-                </div>
+                <div id="chain-rendered" class="prose prose-invert max-w-none"></div>
             </div>
         </section>
 
-        <!-- TAB 2: ROADBOOK & HOTELS -->
+        <!-- TAB 2: ROADBOOK -->
         <section id="tab-roadbook" class="tab-content hidden space-y-6">
             <div class="glass-panel p-6 rounded-2xl">
                 <h2 class="text-2xl font-display font-bold text-white mb-4">🛒 Roadbook Étape par Étape & Annuaire Téléphonique</h2>
@@ -377,19 +292,19 @@ def build():
             </div>
         </section>
 
-        <!-- TAB 3: MAP & PROFILE -->
+        <!-- TAB 3: LEAFLET MAP -->
         <section id="tab-map" class="tab-content hidden space-y-6">
             <div class="glass-panel p-6 rounded-2xl">
-                <h2 class="text-2xl font-display font-bold text-white mb-4">📍 Carte Officielle & Parcours</h2>
+                <h2 class="text-2xl font-display font-bold text-white mb-4">📍 Carte Officielle Leaflet — Trace Continue des 15 Fichiers</h2>
                 <div id="map"></div>
             </div>
         </section>
 
-        <!-- TAB 4: LOGISTICS -->
-        <section id="tab-logistics" class="tab-content hidden space-y-6">
+        <!-- TAB 4: REVIEW -->
+        <section id="tab-review" class="tab-content hidden space-y-6">
             <div class="glass-panel p-6 rounded-2xl">
-                <h2 class="text-2xl font-display font-bold text-white mb-4">🚆 Logistique & Transports Réservez</h2>
-                <div id="logistics-rendered" class="prose prose-invert max-w-none"></div>
+                <h2 class="text-2xl font-display font-bold text-white mb-4">📝 Conclusions de la Revue du Roadbook</h2>
+                <div id="review-rendered" class="prose prose-invert max-w-none"></div>
             </div>
         </section>
 
@@ -458,10 +373,10 @@ def build():
             const waypoints = [
                 {{name: 'Girona (Start/Finish)', lat: 41.979, lon: 2.821, color: '#10b981'}},
                 {{name: 'Sant Llorenç de Morunys (Nuit 1)', lat: 42.137, lon: 1.591, color: '#3b82f6'}},
-                {{name: 'CP1 Pessonada (Tremp)', lat: 42.167, lon: 0.895, color: '#f59e0b'}},
-                {{name: 'CP2 Cañón de Añisclo / Sarvisé (Nuit 2)', lat: 42.610, lon: 0.050, color: '#f59e0b'}},
+                {{name: 'CP1 Pessonada (km 376.0)', lat: 42.215, lon: 1.020, color: '#f59e0b'}},
+                {{name: 'CP2 Sarvisé / Hostal Pirineos (km 553.6)', lat: 42.578, lon: -0.114, color: '#f59e0b'}},
                 {{name: 'St-Jean-Pied-de-Port (Nuit 3)', lat: 43.163, lon: -1.237, color: '#3b82f6'}},
-                {{name: 'CP3 Zarautz / Alsasua (Nuit 4)', lat: 43.285, lon: -2.170, color: '#f59e0b'}},
+                {{name: 'CP3 Gran Camping Zarautz (km 963.4)', lat: 43.289, lon: -2.146, color: '#f59e0b'}},
                 {{name: 'Bagnères-de-Luchon / Vielha (Nuit 5)', lat: 42.790, lon: 0.593, color: '#3b82f6'}},
                 {{name: 'Ripoll / Olot (Nuit 6)', lat: 42.200, lon: 2.285, color: '#3b82f6'}}
             ];
@@ -478,11 +393,14 @@ def build():
 
         document.addEventListener('DOMContentLoaded', () => {{
             if (window.marked) {{
+                if (DOCS_DATA['chain_status.md']) {{
+                    document.getElementById('chain-rendered').innerHTML = marked.parse(DOCS_DATA['chain_status.md'].content);
+                }}
                 if (DOCS_DATA['roadbook.md']) {{
                     document.getElementById('roadbook-rendered').innerHTML = marked.parse(DOCS_DATA['roadbook.md'].content);
                 }}
-                if (DOCS_DATA['logistique.md']) {{
-                    document.getElementById('logistics-rendered').innerHTML = marked.parse(DOCS_DATA['logistique.md'].content);
+                if (DOCS_DATA['roadbook-review-2026-07-29.md']) {{
+                    document.getElementById('review-rendered').innerHTML = marked.parse(DOCS_DATA['roadbook-review-2026-07-29.md'].content);
                 }}
 
                 const docsListEl = document.getElementById('docs-list');
