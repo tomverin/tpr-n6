@@ -3,10 +3,12 @@
 > ⚠️ **Calculé sur un brouillon — chiffres à recalculer (2026-07-29).**
 > `TPRn6 Full v1.gpx` n'est pas le parcours de course mais un premier jet. La distance, la
 > distribution de pentes et donc le **~100 h de roulage** ci-dessous en héritent.
-> Le parcours de course est **`TPRn6 Full v2.gpx`** : **1 849,3 km / +34 345 m**, chaîne
-> quasi continue, les 3 CP dessus (voir `chain_status.md`). Le modèle de pente donne
-> **89,0 h** de roulage **hors pénalité de surface** ; avec les ~58 km de vrai tout-terrain
-> recensés dans `surface_and_tyres_v2.md`, compter **~92 à 94 h**. Recalcul :
+> Le parcours de course est **`TPRn6 Full v2.gpx`** : **1 920,8 km / +34 641 m**, chaîne
+> **continue**, les 3 CP dessus (voir `chain_status.md`). Variantes retenues le 29/07 :
+> liaison 4 par la route (Solsona) et liaison 6 en hybride (raccourci gravier vers CP1 puis
+> bitume par Ainsa) — voir `variantes_liaisons_4_et_6.md`. Le modèle de pente donne
+> **91,8 h** de roulage **hors pénalité de surface** ; avec le gravier restant, compter
+> **~93 à 95 h**. Recalcul :
 > `python3 scripts/race/audit_tpr_chain.py --markdown races/2026-tpr-n6/chain_status.md`.
 > Le « choix de pneus pour les ~23 km de gravier » plus bas est caduc : voir
 > `surface_and_tyres_v2.md`.

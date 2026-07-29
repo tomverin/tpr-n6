@@ -32,7 +32,7 @@ ORDERED_STAGES = [
     "3.TPRn6 A.gpx",
     "4.TPRn6 A to B Gravel.gpx",
     "5.TPRn6 parcours B.gpx",
-    "6.TPRn6 B to C.gpx",
+    "6.TPRn6 B to C Hybrid.gpx",
     "7.TPRn6 parcours C.gpx",
     "8.TPRn6 C to D.gpx",
     "9.TPRn6 parcours D.gpx",
