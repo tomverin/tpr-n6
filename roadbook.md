@@ -1,12 +1,12 @@
 # 🚵‍♂️ TransPyrenees Race No. 6 (2026) — Roadbook
 
-> **Généré le 2026-07-30 16:04** par `scripts/race/build_roadbook.py` depuis les 15 GPX de `Stages/` et `config/stages.json`. Ne pas éditer à la main.
+> **Généré le 2026-07-30 16:29** par `scripts/race/build_roadbook.py` depuis les 15 GPX de `Stages/` et `config/stages.json`. Ne pas éditer à la main.
 
 - **Distance :** **1921 km**
 - **Dénivelé positif :** **+34641 m** (altitude lissée, méthode `audit_tpr_chain`)
 - **Discontinuités (> 50 m) :** **aucune — chaîne continue** (mesuré à la génération)
 - **Roulage modélisé :** **95.8 h** pénalité de surface comprise (91.8 h sur bitume seul, soit +4.0 h de non-bitume)
-- **Control points :** CP1 Pessonada (km 401 · S6 km 23), CP2 Sarvise (km 625 · S8 km 20), CP3 Gran Camping Zarautz (km 1035 · S10 km 149)
+- **Control points :** CP1 Pessonada (km 401 · S6 km 23), CP2 Sarvise (km 625 · S8 km 20), CP3 Gran Camping Zarautz (km 1035 · S10 km 149)
 
 > **Deux kilométrages, et ils ne disent pas la même chose.** Le **cumul** est la coordonnée du plan : cut-off, horaires et marges sont construits dessus, et c'est la référence commune avec l'organisation. Le **km de segment**, noté `S6 km 23`, est la coordonnée mesurable : c'est ce qu'affiche le compteur quand le fichier `6.` est chargé. Le second survit à une variante prise ailleurs sur le parcours, le premier non — passer la liaison 6 par la route décale de plusieurs dizaines de kilomètres tous les cumuls en aval, sans toucher au km de segment des étapes suivantes.
 
@@ -15,18 +15,18 @@
 
 | Étape | Date | Départ → Arrivée | Distance | Cumul à l'arrivée | D+ | Départ | Arrivée | Pauses | Roulage | Sommeil net |
 |---|---|---|---:|---|---:|---|---|---:|---:|---:|
-| **E1** | Ven 25 sept. | **Girona (départ) → Solsona** | **292 km** | km 292 · S4 km 20 | +4 892 m | 07h00 | **23h57** | 2h30 | 14h28 | **4h17** |
-| **E2** | Sam 26 sept. | **Solsona → Plan** | **271 km** | km 563 · S7 km 0 | +5 053 m | 05h30 | **22h06** | 2h30 | 14h06 | **6h09** |
-| **E3** | Dim 27 sept. | **Plan → Saint-Michel / Saint-Jean-Pied-de-Port** | **276 km** | km 839 · S9 km 3 | +4 012 m | 05h30 | **20h00** | 2h00 | 12h30 | **8h15** |
-| **E4** | Lun 28 sept. | **Saint-Michel / Saint-Jean-Pied-de-Port → Saint-Jean-de-Luz / Ciboure** | **274 km** | km 1113 · S12 km 59 | +3 571 m | 05h30 | **19h46** | 2h00 | 12h17 | **6h28** |
-| **E5** | Mar 29 sept. | **Saint-Jean-de-Luz / Ciboure → Esquièze-Sère / Luz-Saint-Sauveur** | **259 km** | km 1372 · S13 km 174 | +5 713 m | 03h30 | **19h29** | 2h30 | 13h29 | **8h46** |
-| **E6** | Mer 30 sept. | **Esquièze-Sère / Luz-Saint-Sauveur → Tarascon-sur-Ariège / Ax-les-Thermes** | **257 km** | km 1629 · S13 km 431 | +6 489 m | 05h30 | **22h14** | 2h30 | 14h15 | **6h00** |
-| **E7** | Jeu 1 oct. | **Tarascon-sur-Ariège / Ax-les-Thermes → Girona (arrivée)** | **292 km** | km 1921 · S15 km 33 | +4 912 m | 05h30 | **22h44** | 2h30 | 14h44 | 🏁 |
+| **E1** | Ven 25 sept. | **Girona (départ) → Solsona** | **292 km** | km 292 · S4 km 20 | +4 892 m | 07h00 | **23h57** | 2h30 | 14h28 | **4h17** |
+| **E2** | Sam 26 sept. | **Solsona → Plan** | **271 km** | km 563 · S7 km 0 | +5 053 m | 05h30 | **22h06** | 2h30 | 14h06 | **6h09** |
+| **E3** | Dim 27 sept. | **Plan → Saint-Michel / Saint-Jean-Pied-de-Port** | **276 km** | km 839 · S9 km 3 | +4 012 m | 05h30 | **20h00** | 2h00 | 12h30 | **8h15** |
+| **E4** | Lun 28 sept. | **Saint-Michel / Saint-Jean-Pied-de-Port → Saint-Jean-de-Luz / Ciboure** | **274 km** | km 1113 · S12 km 59 | +3 571 m | 05h30 | **19h46** | 2h00 | 12h17 | **6h28** |
+| **E5** | Mar 29 sept. | **Saint-Jean-de-Luz / Ciboure → Esquièze-Sère / Luz-Saint-Sauveur** | **259 km** | km 1372 · S13 km 174 | +5 713 m | 03h30 | **19h29** | 2h30 | 13h29 | **8h46** |
+| **E6** | Mer 30 sept. | **Esquièze-Sère / Luz-Saint-Sauveur → Tarascon-sur-Ariège / Ax-les-Thermes** | **257 km** | km 1629 · S13 km 431 | +6 489 m | 05h30 | **22h14** | 2h30 | 14h15 | **6h00** |
+| **E7** | Jeu 1 oct. | **Tarascon-sur-Ariège / Ax-les-Thermes → Girona (arrivée)** | **292 km** | km 1921 · S15 km 33 | +4 912 m | 05h30 | **22h44** | 2h30 | 14h44 | 🏁 |
 
 > Modèle : vitesse par bande de pente (`audit_tpr_chain.SPEED_BY_GRADE`), fatigue +12 %, et pénalité de surface par bac de 200 m (paved ×1.0, unknown_likely_paved ×0.95, suspect_unpaved ×0.8, unpaved ×0.65). Départ 05h30 les jours 2+, sauf E5 à 03h30, 1h15 de logistique hôtel déduite du sommeil.
 
 
-> ⏰ **Nuit 4 — Saint-Jean-de-Luz / Ciboure : départ 03h30 au lieu de 05h30.** Arrivée 19h46, nuit ramenée à **6h28** ; en échange E5 arrive à **19h29** et la nuit suivante monte à **8h46**, devant E6 et ses +6 489 m.
+> ⏰ **Nuit 4 — Saint-Jean-de-Luz / Ciboure : départ 03h30 au lieu de 05h30.** Arrivée 19h46, nuit ramenée à **6h28** ; en échange E5 arrive à **19h29** et la nuit suivante monte à **8h46**, devant E6 et ses +6 489 m.
 >
 > Partir à 03h30 au lieu de 05h30 déplace deux heures de sommeil de cette nuit vers la nuit 5, juste avant E6 et ses +6 489 m. Le plan d'origine donnait la nuit la plus longue avant la moins dure des trois dernières journées et la plus courte avant la plus dure. E6 est aussi la seule des trois où exploser coûte cher : il reste 292 km derrière. Le départ se fait sur 45 km plats sous 115 m d'altitude, sans descente technique. 03h30 est la limite basse : plus tôt ferait passer cette nuit sous le plancher de 6 h. Suppose un hôtel d'où sortir avec le vélo en pleine nuit — Colbert a un veilleur de 22h à 8h.
 
@@ -69,7 +69,7 @@ Le compteur est chargé segment par segment : la distance qu'il affiche est cell
 
 > Relevé OpenStreetMap dans un rayon de 3 km (`find_route_lodging.py`) enrichi par vérification web directe (`config/lodging_enriched.json`). **Présence référencée, pas disponibilité :** ouverture fin septembre et accueil tardif restent à confirmer par téléphone.
 
-### Nuit 1 — Solsona (km 292 · S4 km 20, arrivée Ven 25 sept. 23h57)
+### Nuit 1 — Solsona (km 292 · S4 km 20, arrivée Ven 25 sept. 23h57)
 
 | Nom | Type | Écart | Tarif | Téléphone | Accès à l'arrivée | Vélo / petit-déj |
 |---|---|---:|---:|---|---|---|
@@ -81,7 +81,7 @@ Le compteur est chargé segment par segment : la distance qu'il affiche est cell
 
 > ⚠️ **Un seul accueil en direct à 23h57 un vendredi.** Les autres demandent un arrangement préalable.
 
-### Nuit 2 — Plan (km 563 · S7 km 0, arrivée Sam 26 sept. 22h06)
+### Nuit 2 — Plan (km 563 · S7 km 0, arrivée Sam 26 sept. 22h06)
 
 | Nom | Type | Écart | Tarif | Téléphone | Accès à l'arrivée | Vélo / petit-déj |
 |---|---|---:|---:|---|---|---|
@@ -92,7 +92,7 @@ Le compteur est chargé segment par segment : la distance qu'il affiche est cell
 
 > Replis camping : Refugio de Lavasar (1.9 km).
 
-### Nuit 3 — Saint-Michel / Saint-Jean-Pied-de-Port (km 839 · S9 km 3, arrivée Dim 27 sept. 20h00)
+### Nuit 3 — Saint-Michel / Saint-Jean-Pied-de-Port (km 839 · S9 km 3, arrivée Dim 27 sept. 20h00)
 
 | Nom | Type | Écart | Tarif | Téléphone | Accès à l'arrivée | Vélo / petit-déj |
 |---|---|---:|---:|---|---|---|
@@ -110,7 +110,7 @@ Le compteur est chargé segment par segment : la distance qu'il affiche est cell
 
 > ❓ **Aucun horaire chiffré pour cette étape** : rien ne dit si quelqu'un accueille à 20h00 un dimanche. À régler au téléphone.
 
-### Nuit 4 — Saint-Jean-de-Luz / Ciboure (km 1113 · S12 km 59, arrivée Lun 28 sept. 19h46)
+### Nuit 4 — Saint-Jean-de-Luz / Ciboure (km 1113 · S12 km 59, arrivée Lun 28 sept. 19h46)
 
 | Nom | Type | Écart | Tarif | Téléphone | Accès à l'arrivée | Vélo / petit-déj |
 |---|---|---:|---:|---|---|---|
@@ -126,7 +126,7 @@ Le compteur est chargé segment par segment : la distance qu'il affiche est cell
 
 > Replis camping : Centre de vacances Léo Lagrange Borda Zahar (0.2 km), Suhiberry (1.3 km), Le Bord de Mer (2.1 km).
 
-### Nuit 5 — Esquièze-Sère / Luz-Saint-Sauveur (km 1372 · S13 km 174, arrivée Mar 29 sept. 19h29)
+### Nuit 5 — Esquièze-Sère / Luz-Saint-Sauveur (km 1372 · S13 km 174, arrivée Mar 29 sept. 19h29)
 
 | Nom | Type | Écart | Tarif | Téléphone | Accès à l'arrivée | Vélo / petit-déj |
 |---|---|---:|---:|---|---|---|
@@ -141,7 +141,7 @@ Le compteur est chargé segment par segment : la distance qu'il affiche est cell
 
 > ❓ **Aucun horaire chiffré pour cette étape** : rien ne dit si quelqu'un accueille à 19h29 un mardi. À régler au téléphone.
 
-### Nuit 6 — Tarascon-sur-Ariège / Ax-les-Thermes (km 1629 · S13 km 431, arrivée Mer 30 sept. 22h14)
+### Nuit 6 — Tarascon-sur-Ariège / Ax-les-Thermes (km 1629 · S13 km 431, arrivée Mer 30 sept. 22h14)
 
 | Nom | Type | Écart | Tarif | Téléphone | Accès à l'arrivée | Vélo / petit-déj |
 |---|---|---:|---:|---|---|---|
@@ -271,9 +271,9 @@ Fiche et OpenStreetMap ne disent pas la même chose ; l'un des deux est périmé
 
 | Control point | Km | Compteur | Étape | Passage modélisé | Cut-off | Marge |
 |---|---:|---|---|---|---|---:|
-| **CP1 Pessonada** | 401 | S6 km 23 | E2 | Sam 26 sept. 12h56 | aucun (auto-validation) | — |
-| **CP2 Sarvise (Hostal Pirineos)** | 625 | S8 km 20 | E3 | Dim 27 sept. 08h56 | Dim 27 sept. 16h00 | **+7.1 h** |
-| **CP3 Gran Camping Zarautz** | 1035 | S10 km 149 | E4 | Lun 28 sept. 15h49 | Mar 29 sept. 09h00 | **+17.2 h** |
+| **CP1 Pessonada** | 401 | S6 km 23 | E2 | Sam 26 sept. 12h56 | aucun (auto-validation) | — |
+| **CP2 Sarvise (Hostal Pirineos)** | 625 | S8 km 20 | E3 | Dim 27 sept. 08h56 | Dim 27 sept. 16h00 | **+7.1 h** |
+| **CP3 Gran Camping Zarautz** | 1035 | S10 km 149 | E4 | Lun 28 sept. 15h49 | Mar 29 sept. 09h00 | **+17.2 h** |
 
 > Une fermeture ratée ne disqualifie pas : elle coûte le **General Classification** (pas de temps officiel, retrait du processus de validation), le **Race Finish** restant acquis si les 10 règles sont respectées. Cut-off global GC : **samedi 3 octobre 23h59 CEST**.
 
@@ -297,12 +297,12 @@ Au-delà de cette heure, finir dans les temps impose 5 h de sommeil par nuit jus
 
 | Étape | Km | Compteur | Arrivée prévue | Retard absorbable | Heure limite |
 |---|---:|---|---|---:|---|
-| **E1 Solsona** | 292 | S4 km 20 | Ven 25 sept. 23h57 | **7.5 h** | Sam 26 sept. 07h27 |
-| **E2 Plan** | 563 | S7 km 0 | Sam 26 sept. 22h06 | **8.2 h** | Dim 27 sept. 06h18 |
-| **E3 Saint-Michel / Saint-Jean-Pied-de-Port** | 839 | S9 km 3 | Dim 27 sept. 20h00 | **20.4 h** | Lun 28 sept. 16h25 |
-| **E4 Saint-Jean-de-Luz / Ciboure** | 1113 | S12 km 59 | Lun 28 sept. 19h46 | **55.5 h** | Jeu 1 oct. 03h15 |
-| **E5 Esquièze-Sère / Luz-Saint-Sauveur** | 1372 | S13 km 174 | Mar 29 sept. 19h29 | **54.0 h** | Ven 2 oct. 01h30 |
-| **E6 Tarascon-sur-Ariège / Ax-les-Thermes** | 1629 | S13 km 431 | Mer 30 sept. 22h14 | **50.3 h** | Sam 3 oct. 00h29 |
+| **E1 Solsona** | 292 | S4 km 20 | Ven 25 sept. 23h57 | **7.5 h** | Sam 26 sept. 07h27 |
+| **E2 Plan** | 563 | S7 km 0 | Sam 26 sept. 22h06 | **8.2 h** | Dim 27 sept. 06h18 |
+| **E3 Saint-Michel / Saint-Jean-Pied-de-Port** | 839 | S9 km 3 | Dim 27 sept. 20h00 | **20.4 h** | Lun 28 sept. 16h25 |
+| **E4 Saint-Jean-de-Luz / Ciboure** | 1113 | S12 km 59 | Lun 28 sept. 19h46 | **55.5 h** | Jeu 1 oct. 03h15 |
+| **E5 Esquièze-Sère / Luz-Saint-Sauveur** | 1372 | S13 km 174 | Mar 29 sept. 19h29 | **54.0 h** | Ven 2 oct. 01h30 |
+| **E6 Tarascon-sur-Ariège / Ax-les-Thermes** | 1629 | S13 km 431 | Mer 30 sept. 22h14 | **50.3 h** | Sam 3 oct. 00h29 |
 
 ### Ajouter une nuit : où, et ce que ça coûte
 
