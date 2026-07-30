@@ -6,17 +6,16 @@
 > Le parcours de course est **`TPRn6 Full v2.gpx`** : **1 920,8 km / +34 641 m**, chaîne
 > **continue**, les 3 CP dessus (voir `chain_status.md`). Variantes retenues le 29/07 :
 > liaison 4 par la route (Solsona) et liaison 6 en hybride (raccourci gravier vers CP1 puis
-> bitume par Ainsa) — voir `variantes_liaisons_4_et_6.md`. Le modèle de pente donne
-> **91,8 h** de roulage **hors pénalité de surface** ; avec le gravier restant, compter
-> **~93 à 95 h**. Recalcul :
-> `python3 scripts/race/audit_tpr_chain.py --markdown races/2026-tpr-n6/chain_status.md`.
+> bitume par Ainsa) — voir `variantes_liaisons_4_et_6.md`.
+> Les liaisons sont désormais figées et le chiffre vivant est **95,8 h** de roulage,
+> pénalité de surface comprise, calculé par `scripts/race/propose_stages.py` et publié
+> dans `roadbook.md`. C'est lui qui fait foi, pas les estimations ci-dessous.
 > Le « choix de pneus pour les ~23 km de gravier » plus bas est caduc : voir
-> `surface_and_tyres_v2.md`.
+> `surface_and_tyres_v2.md`, qui mesure **178 km** de non bitumé.
 > La méthode et les vitesses de référence par tranche de pente restent valables : c'est
-> l'entrée GPX qu'il faut changer. À régénérer une fois les liaisons figées.
+> l'entrée GPX qui a changé, pas le modèle.
 > Attention aussi à l'usage du **18,8 km/h** : c'est une moyenne de course entière (fatigue
 > et gravier compris), pas un plafond applicable à une étape isolée.
-> Voir `roadbook-review-2026-07-29.md`.
 
 Combien de km et de dénivelé par jour pour finir en 5, 6 ou 7 jours, avec un
 rythme de **18 h de roulage + 6 h de pause** par jour.

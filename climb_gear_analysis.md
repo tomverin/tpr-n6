@@ -4,6 +4,11 @@
 > - FIT : `archive/test-rides/2026-06-27-035719-ELEMNT ROAM 72A8-563-0.fit` — données SRAM AXS corrigées
 > - GPX : `archive/test-rides/TPRn6 Full v1.gpx`
 > - Setup : **pédalier 46/33 · cassette 10-36 · roue 700×40c (dev 2,136 m)**
+>
+> ⚠️ **Distance de référence périmée.** Ce document raisonne sur le brouillon v1 et
+> répète « ~1 865 km » ; le parcours de course fait **1 920,8 km / +34 641 m**
+> (`chain_status.md`). L'écart de 56 km ne déplace aucune des conclusions, qui portent
+> sur la répartition des pentes et le choix mono-plateau, pas sur la distance totale.
 
 ---
 

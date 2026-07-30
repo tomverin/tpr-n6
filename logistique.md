@@ -180,6 +180,49 @@ Sam 3    🚆 Retour option 3 — dép. 16h01 (67,00 €)
 
 ---
 
+## Quel retour selon le scénario de course
+
+Les trois retours sont **déjà réservés**. La question n'est donc pas d'acheter,
+mais de savoir lequel garder et quand annuler les autres. Un train qui part à
+10h10 est inutilisable le jour même de l'arrivée : il faut dormir d'abord.
+
+| Scénario | Arrivée à Gérone | Nuit après l'arrivée | Train utilisable |
+|---|---|---|---|
+| **6 jours** (abandonné) | Mer. 30 sept. | — | Retour 1 — jeu. 1ᵉʳ oct. 10h10 |
+| **Plan A, 7 jours** | **Jeu. 1ᵉʳ oct. 22h44** | Airbnb séjour B (1→2 oct.) | **Retour 2 — ven. 2 oct. 10h10** |
+| **Bascule 8 jours** | **Ven. 2 oct. 19h35** | Airbnb séjour C (2→3 oct.) | **Retour 3 — sam. 3 oct. 16h01** |
+
+**Le retour 1 (jeu. 1ᵉʳ oct.) ne sert plus à rien** depuis que le mode 6 jours est
+abandonné : il part à 10h10 le jour même où le plan A arrive à 22h44. À annuler
+avant le **24 sept.** tant que c'est gratuit — **107,60 € à récupérer**, et c'est
+la seule action à faire avant le départ.
+
+**Les deux fenêtres d'annulation des Airbnb tombent pendant la course, et au bon
+moment.** Le séjour B s'annule gratuitement jusqu'au 30 sept. 15h00, c'est-à-dire
+au milieu du jour 6 ; le séjour C jusqu'au 1ᵉʳ oct. 15h00, aux deux tiers du jour 7.
+Dans les deux cas on sait déjà si on tient le plan A. Il n'y a donc **rien à
+décider à l'avance** : on garde les deux nuits et on annule celle qui ne sert pas,
+sans frais.
+
+**Ce que coûte vraiment la bascule 8 jours**, décidée en course : le retour 2 du
+2 octobre n'est plus annulable sans frais après le 25 sept., mais reste
+remboursable à **19 € par segment**, soit **38 € de frais** sur 139,60 €. La
+bascule coûte donc une quarantaine d'euros de train, pas un billet perdu.
+Symétriquement, si le plan A tient, le retour 3 (67 €, OUIGO **non remboursable**)
+est perdu — c'est le prix, déjà payé, de garder la bascule ouverte.
+
+> ⚠️ **Limite du dispositif : le retour 3 part samedi 3 oct. à 16h01, et le
+> cut-off GC est le même samedi à 23h59.** Tout scénario plus lent que la bascule
+> 8 jours casse donc aussi le dernier retour réservé. La marge de 32 h calculée
+> après CP3 est une marge de course, pas une marge de voyage : côté transport, la
+> vraie limite est **vendredi soir**.
+
+> ⚠️ **Arrivée à 22h44 contre un check-in Airbnb à 15h00** (plan A, séjour B) :
+> l'arrivée tardive n'est pas confirmée avec Ester (+34 686 68 27 87). À caler
+> avant le départ, en même temps que le dépôt des bagages.
+
+---
+
 ## Dates limites d'annulation
 
 | Réservation | Annulation gratuite avant le | Frais après |
