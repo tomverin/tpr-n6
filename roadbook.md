@@ -1,6 +1,6 @@
 # 🚵‍♂️ TransPyrenees Race No. 6 (2026) — Roadbook
 
-> **Généré le 2026-07-30 11:33** par `scripts/race/build_roadbook.py` depuis les 15 GPX de `Stages/` et `config/stages.json`. Ne pas éditer à la main.
+> **Généré le 2026-07-30 11:43** par `scripts/race/build_roadbook.py` depuis les 15 GPX de `Stages/` et `config/stages.json`. Ne pas éditer à la main.
 
 - **Distance :** **1921 km**
 - **Dénivelé positif :** **+34641 m** (altitude lissée, méthode `audit_tpr_chain`)
@@ -26,67 +26,80 @@
 ---
 ## 🏬 Hébergement aux villes-étapes
 
-> Hébergements aux villes-étapes croisés avec le relevé OpenStreetMap et l'annuaire qualitatif ultra-cyclisme (`config/lodging_enriched.json`).
+> Relevé OpenStreetMap dans un rayon de 3 km (`find_route_lodging.py`). **Présence référencée, pas disponibilité :** ouverture fin septembre et accueil tardif restent à confirmer par téléphone.
 
 ### Nuit 1 — Solsona (km 292, arrivée Ven 25 sept. 23h57)
 
-| Nom | Tarif Indicatif | Téléphone Fixe | WhatsApp / Mobile | Arrivée Tardive / Clé | Politique Vélo | Petit-Déj / Autonomie |
-|---|---|---|---|---|---|---|
-| **Hotel Gran Sol** | **65 - 85 €** | `+34 973 48 09 75` | `+34 689 42 11 05` | Accueil H24 sur prévenance / Boîte à clés | Local vélo sécurisé / Vélo en chambre autorisé | Bouilloire en chambre + option petit-déj à emporter |
-| **Hostal Crisami** | **40 - 55 €** | `+34 973 48 04 13` | `+34 650 33 22 11` | Digicode d'entrée / Remise de clé tardive | Garage fermé à clé | Cafétéria au rez-de-chaussée dès 05:30 |
-| **Sant Roc Hotel Boutique** | **110 - 150 €** | `+34 973 48 40 03` | — | Réception ouverte jusqu'à 00h00 | Local bagages/vélos sécurisé | Petit-déjeuner buffet dès 07:00 / plateau courtoisie en chambre |
-
-> 🚨 **Option de secours en amont :** **Hotel El Pi de Sant Just** (55 - 75 €) (`+34 973 48 25 62`) — *À 3.0 km en amont sur la trace (km 289)*.
+| Nom | Type | Écart trace | Téléphone |
+|---|---|---:|---|
+| **Hotel Gran Sol** | hotel | 0.1 km | — |
+| **Hostal Crisami** | hotel | 0.1 km | `+34 973480413` |
+| **Sant Roc** | hotel | 0.3 km | `+34 973484003` |
+| **Hotel Solsona Central** | hotel | 0.6 km | — |
+| **Restaurant hotel El Pi** | hotel | 3.0 km | — |
 
 ### Nuit 2 — Plan (km 563, arrivée Sam 26 sept. 22h06)
 
-| Nom | Tarif Indicatif | Téléphone Fixe | WhatsApp / Mobile | Arrivée Tardive / Clé | Politique Vélo | Petit-Déj / Autonomie |
-|---|---|---|---|---|---|---|
-| **Hotel Mediodía** | **50 - 70 €** | `+34 974 50 60 40` | `+34 677 11 22 33` | Boîte à clés / Clé laissée au bar sur prévenance | Local ski/vélo fermé à clé | Cuisine disponible / bouilloire |
-| **Apartamentos Villa de Plan** | **65 - 90 €** | `+34 974 50 64 73` | `+34 689 77 88 99` | Digicode / Accès autonome par code SMS | Vélo à l'intérieur de l'appartement ok | Cuisine autonome équipée dans chaque appartement |
-| **Hotel Casa Anita** | **60 - 80 €** | `+34 974 50 60 35` | — | Réception jusqu'à 23h00 | Garage privé fermé | Petit-déjeuner maison servi tôt sur demande |
+| Nom | Type | Écart trace | Téléphone |
+|---|---|---:|---|
+| **Hotel Mediodía** | hotel | 0.1 km | — |
+| **Apartamentos Villa de Plan** | apartment | 0.1 km | `+34 974 50 64 73` |
+| **Casa Torres** | apartment | 1.0 km | — |
+| **Hotel Casa Anita Restaurante** | hotel | 1.3 km | — |
 
-> 🚨 **Option de secours en amont :** **Hotel Pirineos (Sarvisé CP2)** (45 - 65 €) (`+34 974 48 61 03`) — *Sur le CP2 au km 625 (62 km après Plan)*.
+> Replis camping : Refugio de Lavasar (1.9 km).
 
 ### Nuit 3 — Saint-Michel / Saint-Jean-Pied-de-Port (km 839, arrivée Dim 27 sept. 20h00)
 
-| Nom | Tarif Indicatif | Téléphone Fixe | WhatsApp / Mobile | Arrivée Tardive / Clé | Politique Vélo | Petit-Déj / Autonomie |
-|---|---|---|---|---|---|---|
-| **Albergue La Coquille Napoleón** | **22 - 35 €** | `+33 5 59 37 13 77` | `+33 6 62 25 99 40` | Digicode d'entrée / Boîte à clés H24 | Local vélo fermé à clé avec prises de recharge | Espace cuisine autonome / café/thé à disposition dès 05:00 |
-| **Hôtel des Remparts (SJPdP)** | **65 - 85 €** | `+33 5 59 37 13 77` | `+33 6 12 34 56 78` | Accueil tardif sur prévenance téléphonique | Garage vélo sécurisé | Plateau petit-déjeuner préparé la veille en chambre |
-| **Maison Kaserna** | **45 - 65 €** | `+33 5 59 37 65 17` | `+33 6 73 89 49 21` | Boîte à clés sécurisée | Vélo en chambre ou véranda fermée | Accès cuisine commune |
+| Nom | Type | Écart trace | Téléphone |
+|---|---|---:|---|
+| **Albergue La Coquille Napoleón** | hostel | 0.0 km | `+33 6 62 25 99 40` |
+| **Albergue Ferme Ithurburia** | hostel | 0.0 km | `+33 559371117` |
+| **Maison Kaserna** | hostel | 0.1 km | `+33 5 59 37 65 17` |
+| **Villa Goxoki** | hostel | 0.1 km | `+33 6 73 89 49 21` |
+| **Maison Donamaria** | guest_house | 0.3 km | `+33559370232;+33661902921` |
+| **Xoko Goxoa** | hotel | 1.3 km | `+33 5 59 37 06 34` |
 
-> 🚨 **Option de secours en amont :** **Hôtel IPARLA** (55 - 70 €) (`+33 5 59 28 51 03`) — *En amont au km 759*.
+> Replis camping : Camping Municipal Plaza Berri (0.2 km), Gite Zazpiak-Bat (0.2 km), Gîte Urondoa (1.6 km).
 
 ### Nuit 4 — Souraïde (km 1134, arrivée Lun 28 sept. 21h09)
 
-| Nom | Tarif Indicatif | Téléphone Fixe | WhatsApp / Mobile | Arrivée Tardive / Clé | Politique Vélo | Petit-Déj / Autonomie |
-|---|---|---|---|---|---|---|
-| **Hôtel Chilhar (Espelette)** | **75 - 95 €** | `+33 5 59 49 89 01` | `+33 6 44 33 22 11` | Digicode d'accès nuit / clés en boîte | Local vélo sécurisé fermé avec prise électrique | Bouilloire en chambre + petit-déj express sur demande |
-| **Résidence Bergara** | **60 - 80 €** | `+33 5 59 93 90 58` | — | Remise des clés sur réservation préalable | Vélo en appartement autorisé | Cuisine autonome équipée |
-| **Hôtel Euzkadi** | **70 - 90 €** | `+33 5 59 93 91 88` | — | Réception ouverte jusqu'à 22h30 | Garage fermé | Petit-déjeuner buffet dès 07:00 |
+| Nom | Type | Écart trace | Téléphone |
+|---|---|---:|---|
+| **Résidence Bergara** | hotel | 0.1 km | `+33 5 59 93 90 58` |
+| **Hôtel Chilhar** | hotel | 0.2 km | `+33 5 59 49 89 01` |
+| **Hôtel Chilhar** | hotel | 0.2 km | `+33559428901` |
+| **Hôtel Euzkadi** | hotel | 0.2 km | `+33 5 59 93 91 88` |
+| **Me Ithuria** | guest_house | 0.2 km | `+33 6 01 40 60 80` |
+| **Chambres d'hôtes Galerie d'Art Andy Bleu** | guest_house | 0.3 km | `+33671052004` |
 
-> 🚨 **Option de secours en amont :** **Gran Camping Zarautz (CP3 Official)** (35 - 55 €) (`+34 943 83 12 38`) — *Passage CP3 au km 1035 (99 km avant Souraïde)*.
+> Replis camping : Alegera (0.1 km), Madame Isabelle Beltritti (1.1 km), Biper Gorri (1.6 km).
 
 ### Nuit 5 — Esquièze-Sère / Luz-Saint-Sauveur (km 1372, arrivée Mar 29 sept. 20h07)
 
-| Nom | Tarif Indicatif | Téléphone Fixe | WhatsApp / Mobile | Arrivée Tardive / Clé | Politique Vélo | Petit-Déj / Autonomie |
-|---|---|---|---|---|---|---|
-| **Hôtel Tourmalet - Pyrénées** | **55 - 75 €** | `+33 5 62 92 80 07` | `+33 6 08 16 49 79` | Boîte à clés H24 / Digicode SMS | Local vélo sécurisé / Vélo en chambre autorisé | Bouilloire en chambre + boulangerie en face à 06:00 |
-| **Hôtel des Cimes (Luz)** | **60 - 80 €** | `+33 5 62 92 81 12` | — | Accueil tardif sur prévenance téléphonique | Garage fermé privé | Plateau petit-déjeuner la veille sur demande |
-| **Les Templiers** | **50 - 70 €** | `+33 5 62 92 81 05` | — | Réception jusqu'à 22h00 | Local à ski/vélo sécurisé | Buffet petit-déjeuner |
+| Nom | Type | Écart trace | Téléphone |
+|---|---|---:|---|
+| **Hôtel Tourmalet - Pyrénées** | hotel | 0.0 km | `+336 08 16 49 79` |
+| **Hôtel des Cimes** | hotel | 0.1 km | — |
+| **Les Templiers** | hotel | 0.1 km | — |
+| **Le Montaigu** | hotel | 0.1 km | — |
+| **Auberge de Viella** | hostel | 0.1 km | — |
+| **Les Cascades** | guest_house | 0.3 km | — |
 
-> 🚨 **Option de secours en amont :** **Hôtel des Pyrénées (Argelès)** (65 - 85 €) (`+33 5 62 97 00 10`) — *En amont au km 1331 (41 km avant Luz)*.
+> Replis camping : Camping Le Bastan (0.0 km), La Grange Bigourdane (0.1 km), Camping le Bergons (0.1 km).
 
 ### Nuit 6 — Tarascon-sur-Ariège / Ax-les-Thermes (km 1629, arrivée Mer 30 sept. 22h14)
 
-| Nom | Tarif Indicatif | Téléphone Fixe | WhatsApp / Mobile | Arrivée Tardive / Clé | Politique Vélo | Petit-Déj / Autonomie |
-|---|---|---|---|---|---|---|
-| **Hostellerie de la Poste (Tarascon)** | **55 - 75 €** | `+33 5 61 01 79 45` | `+33 6 77 88 99 00` | Boîte à clés / Digicode d'entrée | Garage à vélo fermé à clé | Petit-déjeuner express à emporter |
-| **Le Manoir d'Agnès** | **90 - 120 €** | `+33 5 61 02 32 81` | — | Réception 24h/24 | Local sécurisé | Petit-déjeuner complet |
-| **Hôtel Le Petite Maison (Ax-les-Thermes)** | **60 - 80 €** | `+33 5 61 64 20 20` | `+33 6 44 33 22 11` | Digicode d'accès H24 | Vélo en chambre ok | Bouilloire en chambre |
+| Nom | Type | Écart trace | Téléphone |
+|---|---|---:|---|
+| **Hostellerie de la poste** | hotel | 0.0 km | `+33561017945` |
+| **Le Manoir d'Agnès** | hotel | 0.0 km | `+33 5 61 02 32 81` |
+| **Hôtel Confort** | hotel | 0.0 km | — |
+| **Les chataigniers de Florac** | guest_house | 1.1 km | — |
+| **Le Jardin d’En Vie** | guest_house | 1.2 km | — |
+| **Domaine Fournié** | guest_house | 1.3 km | — |
 
-> 🚨 **Option de secours en amont :** **Hôtel Le Castel d'Alti** (75 - 95 €) (`+33 5 61 79 01 43`) — *En amont au km 1445*.
+> Replis camping : Pré Lombard (0.5 km), Le Sédour (1.1 km), Gîte du couchant (1.6 km).
 
 ---
 ## 📍 Repères, ravitos et control points
