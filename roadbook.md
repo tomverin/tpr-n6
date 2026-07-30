@@ -1,6 +1,6 @@
 # 🚵‍♂️ TransPyrenees Race No. 6 (2026) — Roadbook
 
-> **Généré le 2026-07-30 15:23** par `scripts/race/build_roadbook.py` depuis les 15 GPX de `Stages/` et `config/stages.json`. Ne pas éditer à la main.
+> **Généré le 2026-07-30 16:04** par `scripts/race/build_roadbook.py` depuis les 15 GPX de `Stages/` et `config/stages.json`. Ne pas éditer à la main.
 
 - **Distance :** **1921 km**
 - **Dénivelé positif :** **+34641 m** (altitude lissée, méthode `audit_tpr_chain`)
@@ -18,12 +18,18 @@
 | **E1** | Ven 25 sept. | **Girona (départ) → Solsona** | **292 km** | km 292 · S4 km 20 | +4 892 m | 07h00 | **23h57** | 2h30 | 14h28 | **4h17** |
 | **E2** | Sam 26 sept. | **Solsona → Plan** | **271 km** | km 563 · S7 km 0 | +5 053 m | 05h30 | **22h06** | 2h30 | 14h06 | **6h09** |
 | **E3** | Dim 27 sept. | **Plan → Saint-Michel / Saint-Jean-Pied-de-Port** | **276 km** | km 839 · S9 km 3 | +4 012 m | 05h30 | **20h00** | 2h00 | 12h30 | **8h15** |
-| **E4** | Lun 28 sept. | **Saint-Michel / Saint-Jean-Pied-de-Port → Saint-Jean-de-Luz / Ciboure** | **274 km** | km 1113 · S12 km 59 | +3 571 m | 05h30 | **19h46** | 2h00 | 12h17 | **8h28** |
-| **E5** | Mar 29 sept. | **Saint-Jean-de-Luz / Ciboure → Esquièze-Sère / Luz-Saint-Sauveur** | **259 km** | km 1372 · S13 km 174 | +5 713 m | 05h30 | **21h29** | 2h30 | 13h29 | **6h46** |
+| **E4** | Lun 28 sept. | **Saint-Michel / Saint-Jean-Pied-de-Port → Saint-Jean-de-Luz / Ciboure** | **274 km** | km 1113 · S12 km 59 | +3 571 m | 05h30 | **19h46** | 2h00 | 12h17 | **6h28** |
+| **E5** | Mar 29 sept. | **Saint-Jean-de-Luz / Ciboure → Esquièze-Sère / Luz-Saint-Sauveur** | **259 km** | km 1372 · S13 km 174 | +5 713 m | 03h30 | **19h29** | 2h30 | 13h29 | **8h46** |
 | **E6** | Mer 30 sept. | **Esquièze-Sère / Luz-Saint-Sauveur → Tarascon-sur-Ariège / Ax-les-Thermes** | **257 km** | km 1629 · S13 km 431 | +6 489 m | 05h30 | **22h14** | 2h30 | 14h15 | **6h00** |
 | **E7** | Jeu 1 oct. | **Tarascon-sur-Ariège / Ax-les-Thermes → Girona (arrivée)** | **292 km** | km 1921 · S15 km 33 | +4 912 m | 05h30 | **22h44** | 2h30 | 14h44 | 🏁 |
 
-> Modèle : vitesse par bande de pente (`audit_tpr_chain.SPEED_BY_GRADE`), fatigue +12 %, et pénalité de surface par bac de 200 m (paved ×1.0, unknown_likely_paved ×0.95, suspect_unpaved ×0.8, unpaved ×0.65). Départ 5h30 les jours 2+, 1h15 de logistique hôtel déduite du sommeil.
+> Modèle : vitesse par bande de pente (`audit_tpr_chain.SPEED_BY_GRADE`), fatigue +12 %, et pénalité de surface par bac de 200 m (paved ×1.0, unknown_likely_paved ×0.95, suspect_unpaved ×0.8, unpaved ×0.65). Départ 05h30 les jours 2+, sauf E5 à 03h30, 1h15 de logistique hôtel déduite du sommeil.
+
+
+> ⏰ **Nuit 4 — Saint-Jean-de-Luz / Ciboure : départ 03h30 au lieu de 05h30.** Arrivée 19h46, nuit ramenée à **6h28** ; en échange E5 arrive à **19h29** et la nuit suivante monte à **8h46**, devant E6 et ses +6 489 m.
+>
+> Partir à 03h30 au lieu de 05h30 déplace deux heures de sommeil de cette nuit vers la nuit 5, juste avant E6 et ses +6 489 m. Le plan d'origine donnait la nuit la plus longue avant la moins dure des trois dernières journées et la plus courte avant la plus dure. E6 est aussi la seule des trois où exploser coûte cher : il reste 292 km derrière. Le départ se fait sur 45 km plats sous 115 m d'altitude, sans descente technique. 03h30 est la limite basse : plus tôt ferait passer cette nuit sous le plancher de 6 h. Suppose un hôtel d'où sortir avec le vélo en pleine nuit — Colbert a un veilleur de 22h à 8h.
+
 
 ### Fichiers GPX à charger, par étape
 
@@ -120,7 +126,7 @@ Le compteur est chargé segment par segment : la distance qu'il affiche est cell
 
 > Replis camping : Centre de vacances Léo Lagrange Borda Zahar (0.2 km), Suhiberry (1.3 km), Le Bord de Mer (2.1 km).
 
-### Nuit 5 — Esquièze-Sère / Luz-Saint-Sauveur (km 1372 · S13 km 174, arrivée Mar 29 sept. 21h29)
+### Nuit 5 — Esquièze-Sère / Luz-Saint-Sauveur (km 1372 · S13 km 174, arrivée Mar 29 sept. 19h29)
 
 | Nom | Type | Écart | Tarif | Téléphone | Accès à l'arrivée | Vélo / petit-déj |
 |---|---|---:|---:|---|---|---|
@@ -133,7 +139,7 @@ Le compteur est chargé segment par segment : la distance qu'il affiche est cell
 
 > Replis camping : Camping Le Bastan (0.0 km), La Grange Bigourdane (0.1 km), Camping le Bergons (0.1 km).
 
-> ❓ **Aucun horaire chiffré pour cette étape** : rien ne dit si quelqu'un accueille à 21h29 un mardi. À régler au téléphone.
+> ❓ **Aucun horaire chiffré pour cette étape** : rien ne dit si quelqu'un accueille à 19h29 un mardi. À régler au téléphone.
 
 ### Nuit 6 — Tarascon-sur-Ariège / Ax-les-Thermes (km 1629 · S13 km 431, arrivée Mer 30 sept. 22h14)
 
@@ -150,10 +156,10 @@ Le compteur est chargé segment par segment : la distance qu'il affiche est cell
 
 > 🔑 **Personne à la réception à 22h14 un mercredi** : les 1 option(s) vérifiée(s) exigent une clé ou un code convenu à la réservation. Réservable, mais pas improvisable.
 
-> Levier : **partir 0 h 44 plus tôt** (05h30 → 04h46) ferait arriver avant la fermeture de **Le Manoir d'Agnès**, et donc entrer sans arrangement. Coût : autant de sommeil en moins la nuit précédente.
+> Levier : **partir 0 h 44 plus tôt** (05h30 → 04h46) ferait arriver avant la fermeture de **Le Manoir d'Agnès**, et donc entrer sans arrangement. Coût : autant de sommeil en moins la nuit précédente. ⚠️ Mais cette journée-là commence par monter à **2089 m** avant une descente à **-9.2 %** : avancer le départ déplace cette descente vers le froid et la nuit noire au lieu de l'en sortir. Le levier coûte ici plus cher qu'ailleurs.
 
 
-> ☕ **Aucun petit-déjeuner servi avant le départ, sur aucune étape vérifiée.** Le plus matinal est **Sant Roc Hotel Boutique** à 07h00, soit 1 h 30 après le départ de 05h30. Le premier repas de chaque journée se prépare donc la veille au soir : c'est une contrainte de ravitaillement, pas un détail d'hôtel. Demander systématiquement un plateau ou un sac à emporter, et vérifier la bouilloire en chambre.
+> ☕ **Aucun petit-déjeuner servi avant le départ, sur aucune étape vérifiée.** Le plus matinal est **Sant Roc Hotel Boutique** à 07h00, soit 3 h 30 après le départ le plus matinal du plan, 03h30. Le premier repas de chaque journée se prépare donc la veille au soir : c'est une contrainte de ravitaillement, pas un détail d'hôtel. Demander systématiquement un plateau ou un sac à emporter, et vérifier la bouilloire en chambre.
 
 > ℹ️ **Fiches vérifiées sans étape correspondante** — un arrêt a été déplacé depuis leur relevé. Elles restent valables comme repli en route, pas comme ville-étape : **Souraïde / Espelette**.
 
@@ -161,14 +167,15 @@ Le compteur est chargé segment par segment : la distance qu'il affiche est cell
 ---
 ## ☎️ Checklist d'appels
 
-Aucune ligne du tableau précédent n'a été confirmée de vive voix : les horaires viennent des sites officiels, qui ne disent pas ce qui se passe quand on arrive à 23 h à vélo. Quatre questions suffisent, les mêmes partout :
+Aucune ligne du tableau précédent n'a été confirmée de vive voix : les horaires viennent des sites officiels, qui ne disent pas ce qui se passe quand on arrive à 23 h à vélo. Cinq questions suffisent, les mêmes partout — l'heure d'arrivée et l'heure de départ de chaque nuit sont rappelées dans les titres ci-dessous :
 
 1. **Accueil à l'heure d'arrivée prévue ?** Si la réception est fermée : boîte à clés, digicode, code par SMS ?
 2. **Le vélo rentre-t-il ?** Chambre ou local fermé à clé — un parking ouvert ne compte pas.
-3. **Départ à 05h30 :** petit-déjeuner possible, ou de quoi emporter la veille ?
-4. **Annulation gratuite jusqu'à quand ?** Le plan peut basculer sur 8 jours en course : une nuit non annulable gratuitement enlève cette liberté.
+3. **Peut-on repartir à l'heure de départ prévue, vélo compris ?** C'est la question symétrique de la première, et elle se pose même quand l'accueil du soir est réglé : un vélo enfermé dans une cave sans veilleur ni code ne sort pas avant l'ouverture. À poser en donnant l'heure exacte.
+4. **Petit-déjeuner** possible à cette heure-là, ou de quoi emporter la veille ?
+5. **Annulation gratuite jusqu'à quand ?** Le plan peut basculer sur 8 jours en course : une nuit non annulable gratuitement enlève cette liberté.
 
-### Nuit 1 — Solsona · arrivée Ven 25 sept. 23h57, départ 05h30
+### Nuit 1 — Solsona · arrivée Ven 25 sept. 23h57, départ Sam 26 sept. 05h30
 
 | Ordre | Établissement | Numéros | Pourquoi cet ordre |
 |---:|---|---|---|
@@ -176,14 +183,14 @@ Aucune ligne du tableau précédent n'a été confirmée de vive voix : les hora
 | 2 | **Hotel Gran Sol** | `+34 973 48 09 75` | réception fermée : demander clé, digicode ou code SMS |
 | 3 | **Hostal Crisami** | `+34 973 48 04 13` | réception fermée : demander clé, digicode ou code SMS |
 
-### Nuit 2 — Plan · arrivée Sam 26 sept. 22h06, départ 05h30
+### Nuit 2 — Plan · arrivée Sam 26 sept. 22h06, départ Dim 27 sept. 05h30
 
 | Ordre | Établissement | Numéros | Pourquoi cet ordre |
 |---:|---|---|---|
 | 1 | **Hotel Mediodía** | `+34 974 50 60 06` | accueil en direct à l'arrivée |
 | 2 | **Apartamentos Villa de Plan** | `+34 974 50 64 73` · WhatsApp `+34 676 95 63 40` | ouvert de justesse |
 
-### Nuit 3 — Saint-Michel / Saint-Jean-Pied-de-Port · arrivée Dim 27 sept. 20h00, départ 05h30
+### Nuit 3 — Saint-Michel / Saint-Jean-Pied-de-Port · arrivée Dim 27 sept. 20h00, départ Lun 28 sept. 05h30
 
 | Ordre | Établissement | Numéros | Pourquoi cet ordre |
 |---:|---|---|---|
@@ -192,7 +199,7 @@ Aucune ligne du tableau précédent n'a été confirmée de vive voix : les hora
 | 3 | **Albergue Ferme Ithurburia** | `+33 559371117` | non vérifié |
 | 4 | **Villa Goxoki** | `+33 6 73 89 49 21` | non vérifié |
 
-### Nuit 4 — Saint-Jean-de-Luz / Ciboure · arrivée Lun 28 sept. 19h46, départ 05h30
+### Nuit 4 — Saint-Jean-de-Luz / Ciboure · arrivée Lun 28 sept. 19h46, départ Mar 29 sept. 03h30
 
 | Ordre | Établissement | Numéros | Pourquoi cet ordre |
 |---:|---|---|---|
@@ -201,13 +208,13 @@ Aucune ligne du tableau précédent n'a été confirmée de vive voix : les hora
 | 3 | **Hôtel Le relais de Saint Jacques** | `+33 5 59 26 02 55` | réception fermée : demander clé, digicode ou code SMS |
 | 4 | **La Caravelle** | `+33 5 59 47 18 05` | non vérifié |
 
-### Nuit 5 — Esquièze-Sère / Luz-Saint-Sauveur · arrivée Mar 29 sept. 21h29, départ 05h30
+### Nuit 5 — Esquièze-Sère / Luz-Saint-Sauveur · arrivée Mar 29 sept. 19h29, départ Mer 30 sept. 05h30
 
 | Ordre | Établissement | Numéros | Pourquoi cet ordre |
 |---:|---|---|---|
 | 1 | **Hôtel Tourmalet - Pyrénées** | `+33 5 62 92 80 09` · mobile `+336 08 16 49 79` | horaires inconnus |
 
-### Nuit 6 — Tarascon-sur-Ariège / Ax-les-Thermes · arrivée Mer 30 sept. 22h14, départ 05h30
+### Nuit 6 — Tarascon-sur-Ariège / Ax-les-Thermes · arrivée Mer 30 sept. 22h14, départ Jeu 1 oct. 05h30
 
 | Ordre | Établissement | Numéros | Pourquoi cet ordre |
 |---:|---|---|---|
@@ -294,7 +301,7 @@ Au-delà de cette heure, finir dans les temps impose 5 h de sommeil par nuit jus
 | **E2 Plan** | 563 | S7 km 0 | Sam 26 sept. 22h06 | **8.2 h** | Dim 27 sept. 06h18 |
 | **E3 Saint-Michel / Saint-Jean-Pied-de-Port** | 839 | S9 km 3 | Dim 27 sept. 20h00 | **20.4 h** | Lun 28 sept. 16h25 |
 | **E4 Saint-Jean-de-Luz / Ciboure** | 1113 | S12 km 59 | Lun 28 sept. 19h46 | **55.5 h** | Jeu 1 oct. 03h15 |
-| **E5 Esquièze-Sère / Luz-Saint-Sauveur** | 1372 | S13 km 174 | Mar 29 sept. 21h29 | **52.0 h** | Ven 2 oct. 01h30 |
+| **E5 Esquièze-Sère / Luz-Saint-Sauveur** | 1372 | S13 km 174 | Mar 29 sept. 19h29 | **54.0 h** | Ven 2 oct. 01h30 |
 | **E6 Tarascon-sur-Ariège / Ax-les-Thermes** | 1629 | S13 km 431 | Mer 30 sept. 22h14 | **50.3 h** | Sam 3 oct. 00h29 |
 
 ### Ajouter une nuit : où, et ce que ça coûte
