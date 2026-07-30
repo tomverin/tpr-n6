@@ -1,6 +1,6 @@
 # 🚵‍♂️ TransPyrenees Race No. 6 (2026) — Roadbook
 
-> **Généré le 2026-07-30 11:43** par `scripts/race/build_roadbook.py` depuis les 15 GPX de `Stages/` et `config/stages.json`. Ne pas éditer à la main.
+> **Généré le 2026-07-30 11:47** par `scripts/race/build_roadbook.py` depuis les 15 GPX de `Stages/` et `config/stages.json`. Ne pas éditer à la main.
 
 - **Distance :** **1921 km**
 - **Dénivelé positif :** **+34641 m** (altitude lissée, méthode `audit_tpr_chain`)
@@ -26,78 +26,78 @@
 ---
 ## 🏬 Hébergement aux villes-étapes
 
-> Relevé OpenStreetMap dans un rayon de 3 km (`find_route_lodging.py`). **Présence référencée, pas disponibilité :** ouverture fin septembre et accueil tardif restent à confirmer par téléphone.
+> Relevé OpenStreetMap dans un rayon de 3 km (`find_route_lodging.py`) enrichi par vérification web directe (`config/lodging_enriched.json`). **Présence référencée, pas disponibilité :** ouverture fin septembre et accueil tardif restent à confirmer par téléphone.
 
 ### Nuit 1 — Solsona (km 292, arrivée Ven 25 sept. 23h57)
 
-| Nom | Type | Écart trace | Téléphone |
-|---|---|---:|---|
-| **Hotel Gran Sol** | hotel | 0.1 km | — |
-| **Hostal Crisami** | hotel | 0.1 km | `+34 973480413` |
-| **Sant Roc** | hotel | 0.3 km | `+34 973484003` |
-| **Hotel Solsona Central** | hotel | 0.6 km | — |
-| **Restaurant hotel El Pi** | hotel | 3.0 km | — |
+| Nom | Type | Écart trace | Téléphone Verified / OSM | Info Vérifiée Ultra-Cyclisme (Accès / Vélo) |
+|---|---|---:|---|---|
+| **Hotel Gran Sol** | hotel | 0.1 km | `+34 973 48 09 75` | 🔑 Réception 08:00–22:00 (Appeler 24h avant si arrivée tardive pour instructions) <br> 🚲 Services cyclotourisme & stockage vélos disponible <br> ☕ Restaurant / cafétéria |
+| **Hostal Crisami** | hotel | 0.1 km | `+34 973 48 04 13` | 🔑 Check-in 12:00–20:00 (Prévenir par téléphone pour arrivée tardive) <br> 🚲 Établissement adapté aux sports de plein air & cyclisme <br> ☕ Cafétéria sur place |
+| **Sant Roc** | hotel | 0.3 km | `+34 973 48 00 06` (WhatsApp: `+34 683 14 75 77`) | 🔑 Réception ouverte 24h/24 <br> 🚲 Trastero / Local sécurisé pour rangement des vélos <br> ☕ Petit-déjeuner dès 07:00 / plateau sur demande |
+| **Hotel Solsona Central** | hotel | 0.6 km | — | — |
+| **Restaurant hotel El Pi** | hotel | 3.0 km | — | — |
 
 ### Nuit 2 — Plan (km 563, arrivée Sam 26 sept. 22h06)
 
-| Nom | Type | Écart trace | Téléphone |
-|---|---|---:|---|
-| **Hotel Mediodía** | hotel | 0.1 km | — |
-| **Apartamentos Villa de Plan** | apartment | 0.1 km | `+34 974 50 64 73` |
-| **Casa Torres** | apartment | 1.0 km | — |
-| **Hotel Casa Anita Restaurante** | hotel | 1.3 km | — |
+| Nom | Type | Écart trace | Téléphone Verified / OSM | Info Vérifiée Ultra-Cyclisme (Accès / Vélo) |
+|---|---|---:|---|---|
+| **Hotel Mediodía** | hotel | 0.1 km | — | — |
+| **Apartamentos Villa de Plan** | apartment | 0.1 km | `+34 974 50 64 73` (WhatsApp: `+34 676 95 63 40`) | 🔑 Check-in 15:00–22:30/23:00 (Interphone d'accès autonome à gauche de l'entrée) <br> 🚲 Appartements autonomes (vélos acceptés à l'intérieur) <br> ☕ Cuisine autonome équipée dans chaque appartement |
+| **Casa Torres** | apartment | 1.0 km | — | — |
+| **Hotel Casa Anita Restaurante** | hotel | 1.3 km | — | — |
 
 > Replis camping : Refugio de Lavasar (1.9 km).
 
 ### Nuit 3 — Saint-Michel / Saint-Jean-Pied-de-Port (km 839, arrivée Dim 27 sept. 20h00)
 
-| Nom | Type | Écart trace | Téléphone |
-|---|---|---:|---|
-| **Albergue La Coquille Napoleón** | hostel | 0.0 km | `+33 6 62 25 99 40` |
-| **Albergue Ferme Ithurburia** | hostel | 0.0 km | `+33 559371117` |
-| **Maison Kaserna** | hostel | 0.1 km | `+33 5 59 37 65 17` |
-| **Villa Goxoki** | hostel | 0.1 km | `+33 6 73 89 49 21` |
-| **Maison Donamaria** | guest_house | 0.3 km | `+33559370232;+33661902921` |
-| **Xoko Goxoa** | hotel | 1.3 km | `+33 5 59 37 06 34` |
+| Nom | Type | Écart trace | Téléphone Verified / OSM | Info Vérifiée Ultra-Cyclisme (Accès / Vélo) |
+|---|---|---:|---|---|
+| **Albergue La Coquille Napoleón** | hostel | 0.0 km | `+33 6 62 25 99 40` (WhatsApp: `+33 6 62 25 99 40`) | 🔑 Gîte privé sur réservation (Bixente Eguiazabal) <br> 🚲 Gîte d'étape sur la Route Napoléon <br> ☕ Formule gîte d'étape |
+| **Albergue Ferme Ithurburia** | hostel | 0.0 km | `+33 559371117` | — |
+| **Maison Kaserna** | hostel | 0.1 km | `+33 5 59 37 65 17` | 🔑 Réservation obligatoire par téléphone <br> 🚲 ⚠️ ATTENTION : Refuge paroissial réservé EXCLUSIVEMENT aux pèlerins à pied (VÉLOS NON ACCEPTÉS) <br> ☕ Demi-pension gîte |
+| **Villa Goxoki** | hostel | 0.1 km | `+33 6 73 89 49 21` | — |
+| **Maison Donamaria** | guest_house | 0.3 km | `+33559370232;+33661902921` | — |
+| **Xoko Goxoa** | hotel | 1.3 km | `+33 5 59 37 06 34` | — |
 
 > Replis camping : Camping Municipal Plaza Berri (0.2 km), Gite Zazpiak-Bat (0.2 km), Gîte Urondoa (1.6 km).
 
 ### Nuit 4 — Souraïde (km 1134, arrivée Lun 28 sept. 21h09)
 
-| Nom | Type | Écart trace | Téléphone |
-|---|---|---:|---|
-| **Résidence Bergara** | hotel | 0.1 km | `+33 5 59 93 90 58` |
-| **Hôtel Chilhar** | hotel | 0.2 km | `+33 5 59 49 89 01` |
-| **Hôtel Chilhar** | hotel | 0.2 km | `+33559428901` |
-| **Hôtel Euzkadi** | hotel | 0.2 km | `+33 5 59 93 91 88` |
-| **Me Ithuria** | guest_house | 0.2 km | `+33 6 01 40 60 80` |
-| **Chambres d'hôtes Galerie d'Art Andy Bleu** | guest_house | 0.3 km | `+33671052004` |
+| Nom | Type | Écart trace | Téléphone Verified / OSM | Info Vérifiée Ultra-Cyclisme (Accès / Vélo) |
+|---|---|---:|---|---|
+| **Résidence Bergara** | hotel | 0.1 km | `+33 5 59 93 90 58` | — |
+| **Hôtel Chilhar** | hotel | 0.2 km | `+33 5 59 42 89 01` | 🔑 Réception 08:00–19:00 (Pas de check-in hors horaire sans prévenance) <br> 🚲 Hôtel de centre-bourg Espelette <br> ☕ Restaurant sur place |
+| **Hôtel Chilhar** | hotel | 0.2 km | `+33 5 59 42 89 01` | 🔑 Réception 08:00–19:00 (Pas de check-in hors horaire sans prévenance) <br> 🚲 Hôtel de centre-bourg Espelette <br> ☕ Restaurant sur place |
+| **Hôtel Euzkadi** | hotel | 0.2 km | `+33 5 59 93 91 88` | 🔑 Réception Mer–Dim 08:30–21:30 (⚠️ FERMÉ LUNDI ET MARDI) <br> 🚲 Parking privé fermé avec espace de stockage vélos/motos <br> ☕ Petit-déjeuner buffet |
+| **Me Ithuria** | guest_house | 0.2 km | `+33 6 01 40 60 80` | — |
+| **Chambres d'hôtes Galerie d'Art Andy Bleu** | guest_house | 0.3 km | `+33671052004` | — |
 
 > Replis camping : Alegera (0.1 km), Madame Isabelle Beltritti (1.1 km), Biper Gorri (1.6 km).
 
 ### Nuit 5 — Esquièze-Sère / Luz-Saint-Sauveur (km 1372, arrivée Mar 29 sept. 20h07)
 
-| Nom | Type | Écart trace | Téléphone |
-|---|---|---:|---|
-| **Hôtel Tourmalet - Pyrénées** | hotel | 0.0 km | `+336 08 16 49 79` |
-| **Hôtel des Cimes** | hotel | 0.1 km | — |
-| **Les Templiers** | hotel | 0.1 km | — |
-| **Le Montaigu** | hotel | 0.1 km | — |
-| **Auberge de Viella** | hostel | 0.1 km | — |
-| **Les Cascades** | guest_house | 0.3 km | — |
+| Nom | Type | Écart trace | Téléphone Verified / OSM | Info Vérifiée Ultra-Cyclisme (Accès / Vélo) |
+|---|---|---:|---|---|
+| **Hôtel Tourmalet - Pyrénées** | hotel | 0.0 km | `+336 08 16 49 79` | — |
+| **Hôtel des Cimes** | hotel | 0.1 km | — | — |
+| **Les Templiers** | hotel | 0.1 km | — | — |
+| **Le Montaigu** | hotel | 0.1 km | — | — |
+| **Auberge de Viella** | hostel | 0.1 km | — | — |
+| **Les Cascades** | guest_house | 0.3 km | — | — |
 
 > Replis camping : Camping Le Bastan (0.0 km), La Grange Bigourdane (0.1 km), Camping le Bergons (0.1 km).
 
 ### Nuit 6 — Tarascon-sur-Ariège / Ax-les-Thermes (km 1629, arrivée Mer 30 sept. 22h14)
 
-| Nom | Type | Écart trace | Téléphone |
-|---|---|---:|---|
-| **Hostellerie de la poste** | hotel | 0.0 km | `+33561017945` |
-| **Le Manoir d'Agnès** | hotel | 0.0 km | `+33 5 61 02 32 81` |
-| **Hôtel Confort** | hotel | 0.0 km | — |
-| **Les chataigniers de Florac** | guest_house | 1.1 km | — |
-| **Le Jardin d’En Vie** | guest_house | 1.2 km | — |
-| **Domaine Fournié** | guest_house | 1.3 km | — |
+| Nom | Type | Écart trace | Téléphone Verified / OSM | Info Vérifiée Ultra-Cyclisme (Accès / Vélo) |
+|---|---|---:|---|---|
+| **Hostellerie de la poste** | hotel | 0.0 km | `+33 5 61 05 60 41` | 🔑 Réception hôtel <br> 🚲 Garage à vélos fermé et gratuit (annexe hôtel) <br> ☕ Petit-déjeuner sur place |
+| **Le Manoir d'Agnès** | hotel | 0.0 km | `+33 5 61 02 32 81` | 🔑 Réception ouverte 07:30–21:30 <br> 🚲 🌟 LABELLISÉ ACCUEIL VÉLO : Local à vélos sécurisé + kit réparation + pompe <br> ☕ Petit-déjeuner buffet |
+| **Hôtel Confort** | hotel | 0.0 km | — | — |
+| **Les chataigniers de Florac** | guest_house | 1.1 km | — | — |
+| **Le Jardin d’En Vie** | guest_house | 1.2 km | — | — |
+| **Domaine Fournié** | guest_house | 1.3 km | — | — |
 
 > Replis camping : Pré Lombard (0.5 km), Le Sédour (1.1 km), Gîte du couchant (1.6 km).
 
